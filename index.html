@@ -18,6 +18,8 @@
       --red:#ff4a2d;
       --yellow:#f1ea2f;
       --sectionBox:#eef3fb;
+      --blue-accent:#1807f7;
+      --green-box:rgba(81,248,7,.5);
     }
 
     *{box-sizing:border-box}
@@ -68,6 +70,8 @@
     .lang-switch{
       display:flex;
       gap:8px;
+      transform:scale(.8);
+      transform-origin:right center;
     }
 
     .lang-switch button{
@@ -191,7 +195,7 @@
     }
 
     .btn-primary{
-      background:var(--navy);
+      background:var(--blue-accent);
       color:#fff;
     }
 
@@ -249,6 +253,10 @@
       box-shadow:0 4px 14px rgba(20,35,60,.03);
     }
 
+    .card.green{
+      background:var(--green-box);
+    }
+
     .card h3{
       margin:0 0 10px;
       font-size:1.05rem;
@@ -261,6 +269,13 @@
       color:var(--muted);
       font-size:.96rem;
       line-height:1.9;
+    }
+
+    .mini-note{
+      margin-top:12px;
+      font-size:.82rem;
+      line-height:1.7;
+      color:#43506a;
     }
 
     .notice{
@@ -294,8 +309,12 @@
       margin-top:18px;
       font-size:1.02rem;
       font-weight:700;
-      color:var(--navy);
+      color:var(--blue-accent);
       word-break:break-word;
+    }
+
+    .mail a{
+      color:var(--blue-accent);
     }
 
     footer{
@@ -355,6 +374,10 @@
       footer{
         width:min(1260px,94%);
       }
+
+      .lang-switch{
+        transform:scale(.9);
+      }
     }
   </style>
 </head>
@@ -364,8 +387,8 @@
       <a class="top-link" href="pricing.html">Pricing</a>
       <a class="top-link" href="mailto:contact@powershares.jp">Email</a>
       <div class="lang-switch">
-        <button id="btn-ja" type="button">日本語</button>
         <button id="btn-en" class="active" type="button">English</button>
+        <button id="btn-ja" type="button">日本語</button>
       </div>
     </div>
   </header>
@@ -402,24 +425,19 @@
         <div class="section-head"><h2 class="section-title">Services</h2></div>
         <p class="section-note">Designed for overseas clients who need a clearer understanding of the actual local condition before making a decision.</p>
         <div class="grid grid-3">
-          <div class="card">
+          <div class="card green">
             <h3>Local Area Review</h3>
             <p>We review nearby public transport access, roads leading to the property, and the surrounding environment.</p>
           </div>
-          <div class="card">
+          <div class="card green">
             <h3>Exterior Photo & Video Coverage</h3>
             <p>We capture the building exterior, nearby streets, commercial facilities, and surrounding conditions in photo and video format.</p>
           </div>
-          <div class="card">
+          <div class="card green">
             <h3>Optional Drone Filming</h3>
             <p>Drone filming may also be available depending on the location and request details.</p>
+            <div class="mini-note">We cannot accept the request if the required filming permissions cannot be obtained.</div>
           </div>
-        </div>
-      </section>
-
-      <section>
-        <div class="notice">
-          Drone filming may be available, but we cannot accept the request if the required filming permissions cannot be obtained.
         </div>
       </section>
 
@@ -504,24 +522,19 @@
         <div class="section-head"><h2 class="section-title">Services</h2></div>
         <p class="section-note">現地の状況を、遠隔でも確認しやすい形で整理してお届けします。</p>
         <div class="grid grid-3">
-          <div class="card">
+          <div class="card green">
             <h3>現地周辺確認</h3>
             <p>最寄り駅やバス停などの公共交通施設、物件までの道路状況、周辺の生活環境を確認します。</p>
           </div>
-          <div class="card">
+          <div class="card green">
             <h3>建物外観・周辺撮影</h3>
             <p>建物外観、前面道路、近隣商業施設、周辺の街並みなどを静止画・動画で撮影します。</p>
           </div>
-          <div class="card">
+          <div class="card green">
             <h3>ドローン撮影対応</h3>
             <p>案件内容と場所に応じて、ドローンによる追加撮影にも対応可能です。</p>
+            <div class="mini-note">必要な撮影許可が取得できない場合は受付できません。</div>
           </div>
-        </div>
-      </section>
-
-      <section>
-        <div class="notice">
-          ドローン撮影も対応可能ですが、撮影場所や内容により必要な許可が取得できない場合は受付できません。
         </div>
       </section>
 
