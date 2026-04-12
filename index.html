@@ -322,6 +322,14 @@
       color:var(--blue-accent);
     }
 
+    .meta-inline{
+      display:flex;
+      gap:28px;
+      flex-wrap:wrap;
+      color:var(--muted);
+      font-size:.96rem;
+    }
+
     footer{
       width:min(1260px,92%);
       margin:0 auto;
@@ -382,6 +390,11 @@
 
       .lang-switch{
         transform:scale(.9);
+      }
+
+      .meta-inline{
+        gap:12px;
+        flex-direction:column;
       }
     }
   </style>
@@ -513,8 +526,10 @@
 
           <div class="business-meta">
             <div class="mail"><strong>Email:</strong> <a href="mailto:contact@powershares.jp">contact@powershares.jp</a></div>
-            <div><strong>Business Name:</strong> PowerShares</div>
-            <div><strong>Location:</strong> Yokohama, Kanagawa, Japan</div>
+            <div class="meta-inline">
+              <span>Business Name: PowerShares</span>
+              <span>Location: Yokohama, Kanagawa, Japan</span>
+            </div>
           </div>
         </div>
       </section>
@@ -622,8 +637,10 @@
 
           <div class="business-meta">
             <div class="mail"><strong>Email:</strong> <a href="mailto:contact@powershares.jp">contact@powershares.jp</a></div>
-            <div><strong>Business Name:</strong> PowerShares</div>
-            <div><strong>Location:</strong> 神奈川県横浜市</div>
+            <div class="meta-inline">
+              <span>Business Name: PowerShares</span>
+              <span>Location: 神奈川県横浜市</span>
+            </div>
           </div>
         </div>
       </section>
