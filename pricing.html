@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PowerShares | Pricing</title>
+  <style>
+    :root{
+      --bg:#08101d;
+      --bg2:#0b1220;
+      --card:#121b2e;
+      --line:#263657;
+      --text:#f4f7ff;
+      --muted:#b9c4d9;
+      --accent:#8fb3ff;
+      --accent2:#d7e4ff;
+      --gold:#d8c08b;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+      background:linear-gradient(180deg,var(--bg) 0%, var(--bg2) 100%);
+      color:var(--text);
+      line-height:1.75;
+    }
+    a{color:var(--accent2);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{
+      width:min(1120px,92%);
+      margin:0 auto;
+    }
+    header{
+      position:sticky;
+      top:0;
+      z-index:10;
+      backdrop-filter:blur(10px);
+      background:rgba(8,16,29,.84);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      padding:16px 0;
+    }
+    .brand{
+      font-size:1.4rem;
+      font-weight:800;
+    }
+    .nav-right{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .top-link{
+      color:var(--muted);
+      font-size:.95rem;
+      padding:8px 10px;
+      border-radius:10px;
+    }
+    .top-link:hover{
+      background:rgba(255,255,255,.05);
+      text-decoration:none;
+      color:#fff;
+    }
+    .lang-switch{
+      display:flex;
+      gap:8px;
+    }
+    .lang-switch button{
+      background:#16223a;
+      color:#fff;
+      border:1px solid #2d3f63;
+      border-radius:999px;
+      padding:8px 14px;
+      cursor:pointer;
+      font-weight:700;
+      font-size:.95rem;
+    }
+    .lang-switch button.active{
+      background:var(--accent);
+      color:#08101d;
+      border-color:var(--accent);
+    }
+    .hero{
+      padding:50px 0 24px;
+    }
+    .hero-box{
+      background:
+        radial-gradient(circle at top right, rgba(143,179,255,.12), transparent 30%),
+        linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:24px;
+      padding:36px 28px;
+      box-shadow:0 16px 40px rgba(0,0,0,.24);
+    }
+    .eyebrow{
+      display:inline-block;
+      font-size:.84rem;
+      color:var(--accent2);
+      background:rgba(143,179,255,.10);
+      border:1px solid rgba(143,179,255,.20);
+      border-radius:999px;
+      padding:6px 12px;
+      margin-bottom:18px;
+    }
+    h1{
+      margin:0 0 12px;
+      font-size:clamp(1.8rem,3.2vw,2.7rem);
+      line-height:1.2;
+    }
+    .lead{
+      margin:0;
+      color:var(--muted);
+      max-width:880px;
+      font-size:1rem;
+    }
+    section{padding:20px 0 24px}
+    .section-title{
+      margin:0 0 12px;
+      font-size:1.75rem;
+    }
+    .section-note{
+      margin:0 0 18px;
+      color:var(--muted);
+    }
+    .grid{
+      display:grid;
+      gap:18px;
+    }
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    .grid-2{grid-template-columns:repeat(2,1fr)}
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.01));
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:24px;
+      box-shadow:0 8px 24px rgba(0,0,0,.12);
+    }
+    .card h3{
+      margin:0 0 10px;
+      font-size:1.2rem;
+    }
+    .card p{
+      margin:0;
+      color:var(--muted);
+    }
+    .price{
+      font-size:2.1rem;
+      font-weight:800;
+      margin:12px 0 8px;
+      letter-spacing:-.02em;
+    }
+    .sub{
+      color:var(--muted);
+      font-size:.96rem;
+    }
+    ul.clean{
+      padding-left:20px;
+      margin:14px 0 0;
+      color:var(--muted);
+    }
+    .highlight{
+      background:linear-gradient(180deg, #16233d, #121c31);
+      border:1px solid #33476f;
+      border-left:4px solid var(--gold);
+      border-radius:16px;
+      padding:18px 20px;
+      color:var(--muted);
+    }
+    .contact-box{
+      background:linear-gradient(180deg,#13203a,#10192d);
+      border:1px solid #32456f;
+      border-radius:20px;
+      padding:26px;
+    }
+    .mail{
+      font-size:1.2rem;
+      font-weight:700;
+      margin-top:18px;
+      word-break:break-word;
+    }
+    footer{
+      padding:28px 0 42px;
+      color:var(--muted);
+      font-size:.94rem;
+    }
+    .lang{display:none}
+    .lang.active{display:block}
+
+    @media (max-width: 920px){
+      .grid-3,.grid-2{grid-template-columns:1fr}
+      .hero-box{padding:26px 18px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand">PowerShares</div>
+      <div class="nav-right">
+        <a class="top-link" href="index.html">Home</a>
+        <a class="top-link" href="mailto:contact@powershares.jp">Email</a>
+        <div class="lang-switch">
+          <button id="btn-ja" class="active" type="button">日本語</button>
+          <button id="btn-en" type="button">English</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div id="lang-ja" class="lang active">
+      <section class="hero">
+        <div class="hero-box">
+          <div class="eyebrow">Pricing</div>
+          <h1>料金のご案内</h1>
+          <p class="lead">
+            海外のお客様向けに、日本国内の不動産に関する現地調査・撮影サービスを提供しています。
+            神奈川県および東京都内を基本対応エリアとし、その他エリアは別途費用がかかります。
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">基本プラン</h2>
+        <div class="grid grid-3">
+          <div class="card">
+            <h3>静止画撮影</h3>
+            <div class="price">USD 300</div>
+            <p class="sub">Still image coverage only</p>
+            <ul class="clean">
+              <li>近隣公共交通施設の確認</li>
+              <li>物件までの周辺環境確認</li>
+              <li>近隣商業施設確認</li>
+              <li>建物外観撮影</li>
+              <li>JPEG / PNG データ納品</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>写真 + 動画撮影</h3>
+            <div class="price">USD 450</div>
+            <p class="sub">Still images + video coverage</p>
+            <ul class="clean">
+              <li>静止画撮影一式</li>
+              <li>動画撮影</li>
+              <li>MP4 データ納品</li>
+              <li>遠隔確認向けの見やすい形式で整理</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>物件調査追加</h3>
+            <div class="price">+ USD 630</div>
+            <p class="sub">Additional property research service</p>
+            <ul class="clean">
+              <li>現地確認内容の追加対応</li>
+              <li>個別調査項目への対応</li>
+              <li>内容に応じて別途ご相談</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">オプション</h2>
+        <div class="grid grid-2">
+          <div class="card">
+            <h3>ドローン撮影</h3>
+            <div class="price">+ USD 280</div>
+            <p class="sub">Optional drone filming</p>
+            <ul class="clean">
+              <li>上空からの周辺確認</li>
+              <li>撮影許可取得が前提</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>対応エリア外</h3>
+            <div class="price">Ask</div>
+            <p class="sub">Outside Kanagawa / Tokyo</p>
+            <ul class="clean">
+              <li>神奈川県・東京都内以外は追加費用</li>
+              <li>案件ごとにお見積り</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="highlight">
+          ドローン撮影はオプション対応です。必要な撮影許可が取得できない場合は受付できません。
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">納品形式</h2>
+        <div class="grid grid-2">
+          <div class="card">
+            <h3>静止画</h3>
+            <p>JPEG / PNG 形式で納品します。</p>
+          </div>
+          <div class="card">
+            <h3>動画</h3>
+            <p>MP4 形式で納品します。共有・確認しやすい形式で整理してお渡しします。</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="contact-box">
+          <h2 class="section-title">お問い合わせ</h2>
+          <p class="section-note">詳細や追加費用の確認はメールでご相談ください。</p>
+          <div class="mail">Email: <a href="mailto:contact@powershares.jp">contact@powershares.jp</a></div>
+        </div>
+      </section>
+    </div>
+
+    <div id="lang-en" class="lang">
+      <section class="hero">
+        <div class="hero-box">
+          <div class="eyebrow">Pricing</div>
+          <h1>Service Pricing</h1>
+          <p class="lead">
+            We provide on-site property research and visual reporting services in Japan for overseas clients.
+            Our main coverage area is Kanagawa and Tokyo. Other locations may require additional charges.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Standard Plans</h2>
+        <div class="grid grid-3">
+          <div class="card">
+            <h3>Still Image Coverage</h3>
+            <div class="price">USD 300</div>
+            <p class="sub">Still images only</p>
+            <ul class="clean">
+              <li>Nearby public transport review</li>
+              <li>Access route and surrounding environment check</li>
+              <li>Nearby commercial facilities review</li>
+              <li>Building exterior coverage</li>
+              <li>Delivered in JPEG / PNG format</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Photo + Video Coverage</h3>
+            <div class="price">USD 450</div>
+            <p class="sub">Still images and video</p>
+            <ul class="clean">
+              <li>All still image coverage included</li>
+              <li>Video capture included</li>
+              <li>Delivered in MP4 format</li>
+              <li>Organized for easy remote review</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Additional Property Research</h3>
+            <div class="price">+ USD 630</div>
+            <p class="sub">Extended research service</p>
+            <ul class="clean">
+              <li>Additional on-site research support</li>
+              <li>Custom investigation items</li>
+              <li>Subject to discussion</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Options</h2>
+        <div class="grid grid-2">
+          <div class="card">
+            <h3>Drone Filming</h3>
+            <div class="price">+ USD 280</div>
+            <p class="sub">Optional aerial filming</p>
+            <ul class="clean">
+              <li>Aerial neighborhood review</li>
+              <li>Subject to required permissions</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Outside Main Coverage Area</h3>
+            <div class="price">Ask</div>
+            <p class="sub">Outside Kanagawa / Tokyo</p>
+            <ul class="clean">
+              <li>Additional charges may apply</li>
+              <li>Quoted case by case</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="highlight">
+          Drone filming is an optional service. We cannot accept the request if the necessary filming permissions cannot be obtained.
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Delivery Format</h2>
+        <div class="grid grid-2">
+          <div class="card">
+            <h3>Still Images</h3>
+            <p>Delivered in JPEG / PNG format.</p>
+          </div>
+          <div class="card">
+            <h3>Video Files</h3>
+            <p>Delivered in MP4 format, organized for easy sharing and review.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="contact-box">
+          <h2 class="section-title">Contact</h2>
+          <p class="section-note">Please contact us by email for project details and final quotation.</p>
+          <div class="mail">Email: <a href="mailto:contact@powershares.jp">contact@powershares.jp</a></div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="wrap">
+    <div>© PowerShares. All rights reserved.</div>
+  </footer>
+
+  <script>
+    const btnJa = document.getElementById('btn-ja');
+    const btnEn = document.getElementById('btn-en');
+    const ja = document.getElementById('lang-ja');
+    const en = document.getElementById('lang-en');
+
+    function setLang(lang){
+      if(lang === 'en'){
+        en.classList.add('active');
+        ja.classList.remove('active');
+        btnEn.classList.add('active');
+        btnJa.classList.remove('active');
+        document.documentElement.lang = 'en';
+      } else {
+        ja.classList.add('active');
+        en.classList.remove('active');
+        btnJa.classList.add('active');
+        btnEn.classList.remove('active');
+        document.documentElement.lang = 'ja';
+      }
+    }
+
+    btnJa.addEventListener('click', () => setLang('ja'));
+    btnEn.addEventListener('click', () => setLang('en'));
+  </script>
+</body>
+</html>
