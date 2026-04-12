@@ -11,13 +11,11 @@
       --text:#1e2740;
       --muted:#5d6880;
       --navy:#233a66;
-      --navy-2:#2f4b7d;
       --line:#d8deea;
       --shadow:0 10px 24px rgba(20,35,60,.05);
-      --band:#02051a;
       --red:#ff4a2d;
       --yellow:#f1ea2f;
-      --sectionBox:#eef3fb;
+      --section-orange:#fb4d08;
       --blue-accent:#1807f7;
       --green-box:rgba(81,248,7,.5);
       --card-blue:rgba(24,7,247,.10);
@@ -215,8 +213,8 @@
 
     .section-head{
       display:inline-block;
-      background:var(--sectionBox);
-      border:1px solid #d8e2f1;
+      background:var(--section-orange);
+      border:1px solid var(--section-orange);
       border-radius:12px;
       padding:8px 14px;
       margin:0 0 14px;
@@ -226,7 +224,7 @@
       margin:0;
       font-size:1.3rem;
       font-weight:800;
-      color:var(--navy-2);
+      color:#ffffff;
       line-height:1.2;
     }
 
@@ -257,21 +255,10 @@
       box-shadow:0 4px 14px rgba(20,35,60,.03);
     }
 
-    .card.green{
-      background:var(--green-box);
-    }
-
-    .card.blue{
-      background:var(--card-blue);
-    }
-
-    .card.yellow{
-      background:var(--card-yellow);
-    }
-
-    .card.pink{
-      background:var(--card-pink);
-    }
+    .card.green{ background:var(--green-box); }
+    .card.blue{ background:var(--card-blue); }
+    .card.yellow{ background:var(--card-yellow); }
+    .card.pink{ background:var(--card-pink); }
 
     .card h3{
       margin:0 0 10px;
@@ -310,8 +297,20 @@
       line-height:1.9;
     }
 
+    .business-meta{
+      margin-top:16px;
+      display:grid;
+      gap:8px;
+      font-size:.96rem;
+      color:var(--muted);
+    }
+
+    .business-meta strong{
+      color:var(--text);
+    }
+
     .mail{
-      margin-top:18px;
+      margin-top:4px;
       font-size:1.02rem;
       font-weight:700;
       color:var(--blue-accent);
@@ -510,7 +509,12 @@
             <li>Preferred delivery format (still images / video / both)</li>
             <li>Preferred timing</li>
           </ul>
-          <div class="mail">Email: <a href="mailto:contact@powershares.jp">contact@powershares.jp</a></div>
+
+          <div class="business-meta">
+            <div><strong>Business Name:</strong> PowerShares</div>
+            <div class="mail"><strong>Email:</strong> <a href="mailto:contact@powershares.jp">contact@powershares.jp</a></div>
+            <div><strong>Location:</strong> Yokohama, Kanagawa, Japan</div>
+          </div>
         </div>
       </section>
     </div>
@@ -614,7 +618,12 @@
             <li>希望する納品形式（静止画 / 動画 / 両方）</li>
             <li>希望時期</li>
           </ul>
-          <div class="mail">Email: <a href="mailto:contact@powershares.jp">contact@powershares.jp</a></div>
+
+          <div class="business-meta">
+            <div><strong>事業者名:</strong> PowerShares</div>
+            <div class="mail"><strong>Email:</strong> <a href="mailto:contact@powershares.jp">contact@powershares.jp</a></div>
+            <div><strong>所在地:</strong> 神奈川県横浜市</div>
+          </div>
         </div>
       </section>
     </div>
