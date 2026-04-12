@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PowerShares | Japan Property Research Service</title>
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#121b2e;
+      --line:#24324f;
+      --text:#f3f6ff;
+      --muted:#b8c3d9;
+      --accent:#6ea8ff;
+      --accent2:#9fd3ff;
+      --warn:#ffdca8;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+      background:linear-gradient(180deg,#08101d 0%, #0b1220 100%);
+      color:var(--text);
+      line-height:1.7;
+    }
+    a{color:var(--accent2);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{
+      width:min(1100px,92%);
+      margin:0 auto;
+    }
+    header{
+      border-bottom:1px solid rgba(255,255,255,.08);
+      position:sticky;
+      top:0;
+      backdrop-filter:blur(10px);
+      background:rgba(8,16,29,.88);
+      z-index:10;
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:14px 0;
+    }
+    .brand{
+      font-size:1.15rem;
+      font-weight:700;
+      letter-spacing:.3px;
+    }
+    .lang-switch{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    .lang-switch button{
+      background:#16223a;
+      color:#fff;
+      border:1px solid #2a3b61;
+      border-radius:999px;
+      padding:8px 14px;
+      cursor:pointer;
+      font-weight:600;
+    }
+    .lang-switch button.active{
+      background:var(--accent);
+      color:#08101d;
+      border-color:var(--accent);
+    }
+    .hero{
+      padding:72px 0 44px;
+    }
+    .hero-box{
+      background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:22px;
+      padding:42px 28px;
+      box-shadow:0 12px 40px rgba(0,0,0,.22);
+    }
+    .eyebrow{
+      display:inline-block;
+      font-size:.85rem;
+      color:var(--accent2);
+      background:rgba(110,168,255,.12);
+      border:1px solid rgba(110,168,255,.22);
+      border-radius:999px;
+      padding:6px 12px;
+      margin-bottom:18px;
+    }
+    h1{
+      font-size:clamp(2rem,4.8vw,3.5rem);
+      line-height:1.15;
+      margin:0 0 16px;
+    }
+    .lead{
+      color:var(--muted);
+      font-size:1.06rem;
+      max-width:850px;
+      margin:0 0 24px;
+    }
+    .cta{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:20px;
+    }
+    .btn{
+      display:inline-block;
+      padding:12px 18px;
+      border-radius:12px;
+      font-weight:700;
+      border:1px solid transparent;
+    }
+    .btn-primary{
+      background:var(--accent);
+      color:#08101d;
+    }
+    .btn-secondary{
+      background:transparent;
+      color:#fff;
+      border-color:#3b4d75;
+    }
+    section{
+      padding:18px 0 22px;
+    }
+    .section-title{
+      font-size:1.6rem;
+      margin:0 0 16px;
+    }
+    .section-note{
+      color:var(--muted);
+      margin:0 0 22px;
+    }
+    .grid{
+      display:grid;
+      gap:18px;
+    }
+    .grid-3{
+      grid-template-columns:repeat(3,1fr);
+    }
+    .grid-2{
+      grid-template-columns:repeat(2,1fr);
+    }
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:22px;
+    }
+    .card h3{
+      margin:0 0 10px;
+      font-size:1.08rem;
+    }
+    .card p{
+      margin:0;
+      color:var(--muted);
+    }
+    .price{
+      font-size:1.7rem;
+      font-weight:800;
+      margin:10px 0 8px;
+    }
+    .small{
+      font-size:.95rem;
+      color:var(--muted);
+    }
+    ul.clean{
+      padding-left:18px;
+      margin:12px 0 0;
+      color:var(--muted);
+    }
+    .contact-box{
+      background:linear-gradient(180deg,#13203a,#10192d);
+      border:1px solid #32456f;
+      border-radius:20px;
+      padding:24px;
+    }
+    .note-box{
+      background:#1b2437;
+      border:1px solid #3a496a;
+      border-left:4px solid var(--warn);
+      border-radius:14px;
+      padding:16px 18px;
+      color:var(--muted);
+    }
+    footer{
+      padding:34px 0 48px;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+    .lang{
+      display:none;
+    }
+    .lang.active{
+      display:block;
+    }
+    @media (max-width: 860px){
+      .grid-3,.grid-2{
+        grid-template-columns:1fr;
+      }
+      .hero{
+        padding-top:34px;
+      }
+      .hero-box{
+        padding:26px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand">PowerShares</div>
+      <div class="lang-switch">
+        <button id="btn-ja" class="active" type="button">日本語</button>
+        <button id="btn-en" type="button">English</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div id="lang-ja" class="lang active">
+      <section class="hero">
+        <div class="hero-box">
+          <div class="eyebrow">日本の不動産現地調査サービス</div>
+          <h1>海外のお客様向けに、日本の不動産現地調査・写真撮影・動画編集を提供します。</h1>
+          <p class="lead">
+            日本国内の物件について、現地の周辺状況確認、写真撮影、動画撮影、簡易レポート作成を行います。
+            遠方からでは分かりにくい現地の雰囲気や道路状況、近隣環境などを確認したい方に向けたサービスです。
+          </p>
+          <div class="cta">
+            <a class="btn btn-primary" href="mailto:info@example.com?subject=Property%20Research%20Inquiry">メールで相談する</a>
+            <a class="btn btn-secondary" href="#pricing-ja">料金を見る</a>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">サービス内容</h2>
+        <p class="section-note">必要に応じて内容を組み合わせてご依頼いただけます。</p>
+        <div class="grid grid-3">
+          <div class="card">
+            <h3>現地確認</h3>
+            <p>物件の外観、前面道路、周辺環境、最寄り施設などを現地で確認します。</p>
+          </div>
+          <div class="card">
+            <h3>写真・動画撮影</h3>
+            <p>静止画だけでなく、周辺を含めた動画撮影にも対応します。遠方からの判断材料として活用できます。</p>
+          </div>
+          <div class="card">
+            <h3>編集・納品</h3>
+            <p>撮影した素材を整理し、見やすい形でお渡しします。内容に応じて簡単なコメントも添えます。</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">追加対応</h2>
+        <div class="grid grid-2">
+          <div class="card">
+            <h3>ドローン撮影</h3>
+            <p>ご相談内容によっては、ドローンを使った撮影にも対応可能です。</p>
+          </div>
+          <div class="card">
+            <h3>個別対応</h3>
+            <p>複数物件、広い敷地、周辺エリアの追加確認なども内容に応じて対応します。</p>
+          </div>
+        </div>
+        <div class="note-box" style="margin-top:18px;">
+          ドローン撮影もご相談可能です。ただし、撮影場所や内容により必要な許可が取得できない場合はお受けできません。
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">納品例</h2>
+        <div class="grid grid-2">
+          <div class="card">
+            <h3>写真セット</h3>
+            <p>物件外観、道路、周辺施設、駅までの導線などをまとめて納品します。</p>
+          </div>
+          <div class="card">
+            <h3>動画レポート</h3>
+            <p>現地の雰囲気が伝わるように、短い動画にまとめてお渡しします。</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="pricing-ja">
+        <h2 class="section-title">料金の目安</h2>
+        <p class="section-note">内容・場所・撮影時間により変動します。正式なお見積りはメールでご案内します。</p>
+        <div class="grid grid-3">
+          <div class="card">
+            <h3>基本調査</h3>
+            <div class="price">¥15,000〜</div>
+            <p class="small">現地確認 + 写真撮影</p>
+            <ul class="clean">
+              <li>外観確認</li>
+              <li>前面道路確認</li>
+              <li>写真納品</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>調査 + 動画</h3>
+            <div class="price">¥25,000〜</div>
+            <p class="small">現地確認 + 写真 + 動画撮影</p>
+            <ul class="clean">
+              <li>現地の雰囲気確認</li>
+              <li>動画撮影</li>
+              <li>整理して納品</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>個別見積り</h3>
+            <div class="price">Ask</div>
+            <p class="small">遠方案件・複数物件・追加調査・ドローン撮影</p>
+            <ul class="clean">
+              <li>複数候補地</li>
+              <li>長時間撮影</li>
+              <li>特別なご要望</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">ご依頼の流れ</h2>
+        <div class="grid grid-3">
+          <div class="card">
+            <h3>1. メール相談</h3>
+            <p>物件情報、所在地、ご希望内容をメールでお知らせください。</p>
+          </div>
+          <div class="card">
+            <h3>2. 内容確認</h3>
+            <p>対応可能か確認し、料金の目安とスケジュールをご案内します。</p>
+          </div>
+          <div class="card">
+            <h3>3. 調査・納品</h3>
+            <p>現地確認後、写真・動画・簡易コメントをお送りします。</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="contact-box">
+          <h2 class="section-title">お問い合わせ</h2>
+          <p class="section-note">
+            打ち合わせはメールで行います。下記内容を添えてご連絡ください。
+          </p>
+          <ul class="clean">
+            <li>物件の所在地またはURL</li>
+            <li>希望する調査内容</li>
+            <li>納品希望形式（写真 / 動画 / 両方）</li>
+            <li>希望時期</li>
+          </ul>
+          <p style="margin-top:18px;">
+            Email: <a href="mailto:info@example.com">info@example.com</a>
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <div id="lang-en" class="lang">
+      <section class="hero">
+        <div class="hero-box">
+          <div class="eyebrow">Japan Property Research Service</div>
+          <h1>On-site property research, photos, edited video reports, and optional drone filming in Japan for overseas clients.</h1>
+          <p class="lead">
+            We provide local property checks in Japan, including neighborhood observation, photo capture, video capture, and simple reporting.
+            This service is designed for overseas clients who want a better understanding of a property's real local condition before making decisions.
+          </p>
+          <div class="cta">
+            <a class="btn btn-primary" href="mailto:info@example.com?subject=Property%20Research%20Inquiry">Contact by Email</a>
+            <a class="btn btn-secondary" href="#pricing-en">View Pricing</a>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Services</h2>
+        <p class="section-note">You may request one service or combine multiple services as needed.</p>
+        <div class="grid grid-3">
+          <div class="card">
+            <h3>On-Site Check</h3>
+            <p>We inspect the exterior, road access, nearby surroundings, and local environment of the property.</p>
+          </div>
+          <div class="card">
+            <h3>Photo & Video</h3>
+            <p>We provide both still images and video footage to help you understand the actual atmosphere of the area.</p>
+          </div>
+          <div class="card">
+            <h3>Editing & Delivery</h3>
+            <p>Captured materials are organized and delivered in a clear format, with brief comments when needed.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Additional Options</h2>
+        <div class="grid grid-2">
+          <div class="card">
+            <h3>Drone Filming</h3>
+            <p>Drone filming may also be available depending on the property and location.</p>
+          </div>
+          <div class="card">
+            <h3>Custom Requests</h3>
+            <p>We may also support multiple properties, larger sites, or wider neighborhood checks depending on the request.</p>
+          </div>
+        </div>
+        <div class="note-box" style="margin-top:18px;">
+          Drone filming is available upon request. However, if the required filming permissions cannot be obtained, we cannot accept the request.
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Delivery Examples</h2>
+        <div class="grid grid-2">
+          <div class="card">
+            <h3>Photo Package</h3>
+            <p>Exterior, access road, nearby facilities, and route surroundings can be delivered as a photo set.</p>
+          </div>
+          <div class="card">
+            <h3>Video Report</h3>
+            <p>A short edited video can be provided to show the real atmosphere of the area and the property surroundings.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="pricing-en">
+        <h2 class="section-title">Pricing Guide</h2>
+        <p class="section-note">Pricing depends on location, scope, and required shooting time. A formal quote will be provided by email.</p>
+        <div class="grid grid-3">
+          <div class="card">
+            <h3>Basic Research</h3>
+            <div class="price">JPY 15,000+</div>
+            <p class="small">On-site check + photo package</p>
+            <ul class="clean">
+              <li>Exterior review</li>
+              <li>Road access check</li>
+              <li>Photo delivery</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Research + Video</h3>
+            <div class="price">JPY 25,000+</div>
+            <p class="small">On-site check + photos + video</p>
+            <ul class="clean">
+              <li>Area atmosphere review</li>
+              <li>Video capture</li>
+              <li>Organized delivery</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Custom Quote</h3>
+            <div class="price">Ask</div>
+            <p class="small">Long distance / multiple properties / additional checks / drone filming</p>
+            <ul class="clean">
+              <li>Multiple locations</li>
+              <li>Longer filming time</li>
+              <li>Special requests</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">How It Works</h2>
+        <div class="grid grid-3">
+          <div class="card">
+            <h3>1. Email Inquiry</h3>
+            <p>Please send the property address, listing URL, and your requested scope by email.</p>
+          </div>
+          <div class="card">
+            <h3>2. Scope Confirmation</h3>
+            <p>We confirm feasibility and send you a schedule and estimated price.</p>
+          </div>
+          <div class="card">
+            <h3>3. Research & Delivery</h3>
+            <p>After the on-site visit, we deliver photos, video materials, and simple comments.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="contact-box">
+          <h2 class="section-title">Contact</h2>
+          <p class="section-note">
+            Initial discussion will be handled by email. Please include the following information.
+          </p>
+          <ul class="clean">
+            <li>Property address or listing URL</li>
+            <li>Requested scope of research</li>
+            <li>Preferred delivery format (photos / video / both)</li>
+            <li>Preferred timing</li>
+          </ul>
+          <p style="margin-top:18px;">
+            Email: <a href="mailto:info@example.com">info@example.com</a>
+          </p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="wrap">
+    <div>© PowerShares. All rights reserved.</div>
+  </footer>
+
+  <script>
+    const btnJa = document.getElementById('btn-ja');
+    const btnEn = document.getElementById('btn-en');
+    const ja = document.getElementById('lang-ja');
+    const en = document.getElementById('lang-en');
+
+    btnJa.addEventListener('click', () => {
+      ja.classList.add('active');
+      en.classList.remove('active');
+      btnJa.classList.add('active');
+      btnEn.classList.remove('active');
+      document.documentElement.lang = 'ja';
+    });
+
+    btnEn.addEventListener('click', () => {
+      en.classList.add('active');
+      ja.classList.remove('active');
+      btnEn.classList.add('active');
+      btnJa.classList.remove('active');
+      document.documentElement.lang = 'en';
+    });
+  </script>
+</body>
+</html>
