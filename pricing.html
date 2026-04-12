@@ -89,7 +89,7 @@
 
     .hero-band{
       width:100%;
-      min-height:170px;
+      min-height:215px;
       background:var(--price-band);
       border-bottom:1px solid rgba(255,255,255,.06);
     }
@@ -97,19 +97,19 @@
     .hero-band-inner{
       width:min(1320px,96%);
       margin:0 auto;
-      min-height:170px;
+      min-height:215px;
       position:relative;
       display:flex;
       flex-direction:column;
       align-items:center;
       justify-content:center;
-      padding:24px 24px 18px;
+      padding:26px 24px 20px;
     }
 
     .hero-brand{
       position:absolute;
       left:8px;
-      top:24px;
+      top:28px;
       color:#fff;
       font-size:.9rem;
       font-weight:800;
@@ -268,286 +268,4 @@
     }
 
     .contact-box{
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:24px;
-      box-shadow:var(--shadow);
-    }
-
-    .contact-box p{
-      margin:0 0 14px;
-      color:var(--muted);
-      font-size:.97rem;
-    }
-
-    .mail{
-      margin-top:8px;
-      font-size:1.02rem;
-      font-weight:700;
-      color:var(--blue-accent);
-      word-break:break-word;
-    }
-
-    .mail a{
-      color:var(--blue-accent);
-    }
-
-    footer{
-      width:min(1260px,92%);
-      margin:0 auto;
-      padding:14px 0 34px;
-      color:var(--muted);
-      font-size:.92rem;
-    }
-
-    .lang{
-      display:none;
-    }
-
-    .lang.active{
-      display:block;
-    }
-
-    @media (max-width: 980px){
-      .grid-3,.grid-2{
-        grid-template-columns:1fr;
-      }
-
-      .hero-band{
-        min-height:135px;
-      }
-
-      .hero-band-inner{
-        min-height:135px;
-        padding-top:34px;
-      }
-
-      .hero-brand{
-        top:16px;
-        left:6px;
-        font-size:.82rem;
-      }
-
-      .hero-title{
-        font-size:clamp(1rem,5vw,1.4rem);
-      }
-
-      .hero-main{
-        padding:18px 16px;
-      }
-
-      .hero-main h1{
-        font-size:2rem;
-      }
-
-      .price{
-        font-size:2.4rem;
-      }
-
-      .container,
-      footer{
-        width:min(1260px,94%);
-      }
-
-      .lang-switch{
-        transform:scale(.9);
-      }
-
-      .price-card h3,
-      .price-card .sub{
-        min-height:auto;
-      }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="nav">
-      <a class="top-link" href="index.html">Home</a>
-      <a class="top-link" href="mailto:contact@powershares.jp">Email</a>
-      <div class="lang-switch">
-        <button id="btn-en" class="active" type="button">English</button>
-        <button id="btn-ja" type="button">日本語</button>
-      </div>
-    </div>
-  </header>
-
-  <div class="hero-band">
-    <div class="hero-band-inner">
-      <div class="hero-brand">POWERSHARES</div>
-      <h2 class="hero-title">Japan Property Research</h2>
-    </div>
-  </div>
-
-  <main class="container">
-    <div id="lang-en" class="lang active">
-      <section>
-        <div class="hero-main">
-          <h1>Pricing</h1>
-          <p class="lead">
-            We provide on-site property research and visual reporting services in Japan for overseas clients.
-            Our main coverage area is Kanagawa and Tokyo. Other locations may require additional charges.
-          </p>
-        </div>
-      </section>
-
-      <section>
-        <h2 class="section-title-plain">Standard Plans</h2>
-        <div class="grid grid-2">
-          <div class="card price-card">
-            <h3>Photo Coverage</h3>
-            <div class="price">USD 300</div>
-            <div class="sub">Still images only</div>
-            <ul>
-              <li>Nearby public transport review</li>
-              <li>Access route and surrounding environment check</li>
-              <li>Nearby commercial facilities review</li>
-              <li>Building exterior coverage</li>
-              <li>Delivered in JPEG / PNG format</li>
-            </ul>
-          </div>
-
-          <div class="card price-card">
-            <h3>Photo + Video Coverage</h3>
-            <div class="price">USD 450</div>
-            <div class="sub">Still images and video</div>
-            <ul>
-              <li>All photo coverage included</li>
-              <li>Video capture included</li>
-              <li>Delivered in MP4 format</li>
-              <li>Organized for easy remote review</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <h2 class="section-title-plain">Options</h2>
-        <div class="grid grid-2">
-          <div class="card option-card">
-            <h3>Drone Filming</h3>
-            <div class="price">USD 280</div>
-            <div class="sub">Optional drone filming</div>
-            <div class="mini-note">Available as an add-on to Photo Coverage or Photo + Video Coverage. Drone filming is optional and cannot be accepted if required filming permissions cannot be obtained.</div>
-          </div>
-
-          <div class="card option-card">
-            <h3>Additional Property Research</h3>
-            <div class="price">USD 630</div>
-            <div class="sub">Extended research service</div>
-            <div class="mini-note">Available as an add-on to Photo Coverage or Photo + Video Coverage. Not available as a standalone service.</div>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <div class="contact-box">
-          <h3 class="section-title-plain" style="font-size:1.8rem; margin-bottom:14px;">Contact</h3>
-          <p>Please contact us by email for details and final quotation.</p>
-          <div class="mail">Email: <a href="mailto:contact@powershares.jp">contact@powershares.jp</a></div>
-        </div>
-      </section>
-    </div>
-
-    <div id="lang-ja" class="lang">
-      <section>
-        <div class="hero-main">
-          <h1>Pricing</h1>
-          <p class="lead">
-            海外のお客様向けに、日本国内の不動産に関する現地確認・撮影サービスを提供しています。
-            神奈川県および東京都内を基本対応エリアとし、その他エリアは別途費用がかかります。
-          </p>
-        </div>
-      </section>
-
-      <section>
-        <h2 class="section-title-plain">Standard Plans</h2>
-        <div class="grid grid-2">
-          <div class="card price-card">
-            <h3>Photo Coverage</h3>
-            <div class="price">USD 300</div>
-            <div class="sub">静止画のみ</div>
-            <ul>
-              <li>近隣公共交通施設の確認</li>
-              <li>物件までの周辺環境確認</li>
-              <li>近隣商業施設確認</li>
-              <li>建物外観撮影</li>
-              <li>JPEG / PNG データ納品</li>
-            </ul>
-          </div>
-
-          <div class="card price-card">
-            <h3>Photo + Video Coverage</h3>
-            <div class="price">USD 450</div>
-            <div class="sub">静止画 + 動画</div>
-            <ul>
-              <li>Photo Coverage 一式を含む</li>
-              <li>動画撮影</li>
-              <li>MP4 データ納品</li>
-              <li>確認しやすい形で整理して納品</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <h2 class="section-title-plain">オプション</h2>
-        <div class="grid grid-2">
-          <div class="card option-card">
-            <h3>ドローン撮影</h3>
-            <div class="price">USD 280</div>
-            <div class="sub">オプション対応</div>
-            <div class="mini-note">Photo Coverage または Photo + Video Coverage に追加して選択可能です。ドローン撮影はオプション対応で、必要な撮影許可が取得できない場合は受付できません。</div>
-          </div>
-
-          <div class="card option-card">
-            <h3>物件調査追加</h3>
-            <div class="price">USD 630</div>
-            <div class="sub">追加調査</div>
-            <div class="mini-note">Photo Coverage または Photo + Video Coverage に追加して選択可能です。単体では受け付けておりません。</div>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <div class="contact-box">
-          <h3 class="section-title-plain" style="font-size:1.8rem; margin-bottom:14px;">お問い合わせ</h3>
-          <p>詳細や追加費用の確認はメールでご相談ください。</p>
-          <div class="mail">Email: <a href="mailto:contact@powershares.jp">contact@powershares.jp</a></div>
-        </div>
-      </section>
-    </div>
-  </main>
-
-  <footer>
-    <div>© PowerShares. All rights reserved.</div>
-  </footer>
-
-  <script>
-    const btnJa = document.getElementById('btn-ja');
-    const btnEn = document.getElementById('btn-en');
-    const ja = document.getElementById('lang-ja');
-    const en = document.getElementById('lang-en');
-
-    function setLang(lang){
-      if(lang === 'ja'){
-        ja.classList.add('active');
-        en.classList.remove('active');
-        btnJa.classList.add('active');
-        btnEn.classList.remove('active');
-        document.documentElement.lang = 'ja';
-      } else {
-        en.classList.add('active');
-        ja.classList.remove('active');
-        btnEn.classList.add('active');
-        btnJa.classList.remove('active');
-        document.documentElement.lang = 'en';
-      }
-    }
-
-    btnJa.addEventListener('click', () => setLang('ja'));
-    btnEn.addEventListener('click', () => setLang('en'));
-  </script>
-</body>
-</html>
+     
