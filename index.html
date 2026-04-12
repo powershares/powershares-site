@@ -20,6 +20,10 @@
       --sectionBox:#eef3fb;
       --blue-accent:#1807f7;
       --green-box:rgba(81,248,7,.5);
+      --card-blue:rgba(24,7,247,.10);
+      --card-yellow:rgba(241,234,47,.22);
+      --card-pink:rgba(255,74,45,.12);
+      --hero-box-blue:rgba(24,7,247,.06);
     }
 
     *{box-sizing:border-box}
@@ -155,7 +159,7 @@
 
     .hero-main{
       width:100%;
-      background:var(--white);
+      background:var(--hero-box-blue);
       border:1px solid var(--line);
       border-radius:16px;
       padding:22px 22px 18px;
@@ -257,6 +261,18 @@
       background:var(--green-box);
     }
 
+    .card.blue{
+      background:var(--card-blue);
+    }
+
+    .card.yellow{
+      background:var(--card-yellow);
+    }
+
+    .card.pink{
+      background:var(--card-pink);
+    }
+
     .card h3{
       margin:0 0 10px;
       font-size:1.05rem;
@@ -276,17 +292,6 @@
       font-size:.82rem;
       line-height:1.7;
       color:#43506a;
-    }
-
-    .notice{
-      background:#fff;
-      border:1px solid var(--line);
-      border-left:4px solid var(--navy);
-      border-radius:14px;
-      padding:16px 18px;
-      color:var(--muted);
-      font-size:.96rem;
-      box-shadow:0 4px 14px rgba(20,35,60,.03);
     }
 
     .contact-box{
@@ -424,19 +429,26 @@
       <section>
         <div class="section-head"><h2 class="section-title">Services</h2></div>
         <p class="section-note">Designed for overseas clients who need a clearer understanding of the actual local condition before making a decision.</p>
-        <div class="grid grid-3">
+        <div class="grid grid-2">
           <div class="card green">
             <h3>Local Area Review</h3>
             <p>We review nearby public transport access, roads leading to the property, and the surrounding environment.</p>
           </div>
-          <div class="card green">
+
+          <div class="card blue">
             <h3>Exterior Photo & Video Coverage</h3>
             <p>We capture the building exterior, nearby streets, commercial facilities, and surrounding conditions in photo and video format.</p>
           </div>
-          <div class="card green">
+
+          <div class="card yellow">
             <h3>Optional Drone Filming</h3>
             <p>Drone filming may also be available depending on the location and request details.</p>
             <div class="mini-note">We cannot accept the request if the required filming permissions cannot be obtained.</div>
+          </div>
+
+          <div class="card pink">
+            <h3>Property Investigation</h3>
+            <p>Legal rights review and key disclosure checks conducted by a licensed Japanese Real Estate Transaction Specialist.</p>
           </div>
         </div>
       </section>
@@ -521,19 +533,26 @@
       <section>
         <div class="section-head"><h2 class="section-title">Services</h2></div>
         <p class="section-note">現地の状況を、遠隔でも確認しやすい形で整理してお届けします。</p>
-        <div class="grid grid-3">
+        <div class="grid grid-2">
           <div class="card green">
             <h3>現地周辺確認</h3>
             <p>最寄り駅やバス停などの公共交通施設、物件までの道路状況、周辺の生活環境を確認します。</p>
           </div>
-          <div class="card green">
+
+          <div class="card blue">
             <h3>建物外観・周辺撮影</h3>
             <p>建物外観、前面道路、近隣商業施設、周辺の街並みなどを静止画・動画で撮影します。</p>
           </div>
-          <div class="card green">
+
+          <div class="card yellow">
             <h3>ドローン撮影対応</h3>
             <p>案件内容と場所に応じて、ドローンによる追加撮影にも対応可能です。</p>
             <div class="mini-note">必要な撮影許可が取得できない場合は受付できません。</div>
+          </div>
+
+          <div class="card pink">
+            <h3>物件調査</h3>
+            <p>日本の国家資格者による権利関係ほか、重要事項調査を行います。</p>
           </div>
         </div>
       </section>
