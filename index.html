@@ -6,19 +6,17 @@
   <title>PowerShares | Japan Property Research</title>
   <style>
     :root{
-      --bg:#f4f4f6;
+      --bg:#f3f3f5;
       --white:#ffffff;
-      --text:#1d2740;
-      --muted:#5e6a80;
+      --text:#1e2740;
+      --muted:#5d6880;
       --navy:#233a66;
-      --navy-dark:#070b14;
-      --navy-deep:#0b1120;
-      --line:#d7dde7;
-      --shadow:0 10px 26px rgba(20,35,60,.06);
+      --navy-dark:#050814;
+      --line:#d8deea;
+      --shadow:0 10px 24px rgba(20,35,60,.05);
     }
 
     *{box-sizing:border-box}
-
     html{scroll-behavior:smooth}
 
     body{
@@ -26,7 +24,7 @@
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
       background:var(--bg);
       color:var(--text);
-      line-height:1.8;
+      line-height:1.85;
     }
 
     a{
@@ -34,9 +32,8 @@
       text-decoration:none;
     }
 
-    .page-wrap{
-      width:min(1520px,96%);
-      margin:0 auto;
+    a:hover{
+      text-decoration:none;
     }
 
     header{
@@ -49,29 +46,18 @@
     }
 
     .nav{
+      width:min(1600px,98%);
+      margin:0 auto;
+      min-height:52px;
+      padding:8px 0;
       display:flex;
       align-items:center;
-      justify-content:space-between;
-      gap:20px;
-      padding:14px 0;
-    }
-
-    .brand-top{
-      font-size:.9rem;
-      font-weight:800;
-      letter-spacing:.22em;
-      color:var(--navy);
-    }
-
-    .nav-right{
-      display:flex;
-      align-items:center;
+      justify-content:flex-end;
       gap:14px;
-      flex-wrap:wrap;
     }
 
     .top-link{
-      color:#5b6780;
+      color:#5a6780;
       font-size:.95rem;
     }
 
@@ -87,9 +73,9 @@
     .lang-switch button{
       background:#fff;
       color:var(--navy);
-      border:1px solid #cbd4e2;
+      border:1px solid #ccd4e2;
       border-radius:999px;
-      padding:8px 16px;
+      padding:8px 15px;
       cursor:pointer;
       font-weight:700;
       font-size:.95rem;
@@ -103,113 +89,90 @@
 
     .hero-band{
       width:100%;
-      min-height:300px;
+      min-height:235px;
       background:
-        radial-gradient(circle at 88% 28%, rgba(255,255,255,.12), transparent 18%),
-        radial-gradient(circle at 82% 38%, rgba(255,255,255,.08), transparent 24%),
-        linear-gradient(180deg, #06080f 0%, #0a0f1b 100%);
-      position:relative;
-      overflow:hidden;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      border-bottom:1px solid rgba(255,255,255,.08);
-    }
-
-    .hero-band::after{
-      content:"";
-      position:absolute;
-      right:-6%;
-      top:-10%;
-      width:46%;
-      height:140%;
-      background:
-        radial-gradient(circle at center, rgba(255,255,255,.08), transparent 58%);
-      opacity:.45;
-      pointer-events:none;
-      filter:blur(16px);
+        radial-gradient(circle at 86% 30%, rgba(255,255,255,.14), transparent 16%),
+        radial-gradient(circle at 82% 38%, rgba(255,255,255,.08), transparent 22%),
+        linear-gradient(180deg, #02040b 0%, #040814 52%, #050915 100%);
+      border-bottom:1px solid rgba(255,255,255,.06);
     }
 
     .hero-band-inner{
-      width:min(1700px,98%);
+      width:min(1600px,98%);
       margin:0 auto;
-      min-height:300px;
+      min-height:235px;
       position:relative;
       display:flex;
       align-items:center;
       justify-content:center;
-      padding:40px 24px;
+      padding:30px 18px;
     }
 
-    .hero-brand-in-band{
+    .hero-brand{
       position:absolute;
       left:18px;
-      top:18px;
-      font-size:.95rem;
-      font-weight:800;
-      letter-spacing:.24em;
+      top:20px;
       color:#fff;
-      opacity:.95;
+      font-size:.92rem;
+      font-weight:800;
+      letter-spacing:.01em;
     }
 
-    .hero-band-title{
+    .hero-title{
       margin:0;
       color:#fff;
       text-align:center;
       font-family:Georgia,"Times New Roman",Times,serif;
-      font-size:clamp(3.4rem,7vw,5.8rem);
+      font-size:clamp(3rem,6vw,5.1rem);
       font-weight:400;
-      line-height:1;
+      line-height:.96;
       letter-spacing:.01em;
     }
 
-    .content-wrap{
-      width:min(1520px,96%);
+    .container{
+      width:min(920px,92%);
       margin:0 auto;
-      padding:26px 0 44px;
+      padding:24px 0 40px;
     }
 
     .hero-main{
       background:var(--white);
       border:1px solid var(--line);
-      border-radius:18px;
-      padding:28px 28px 24px;
+      border-radius:16px;
+      padding:22px 22px 18px;
       box-shadow:var(--shadow);
-      margin-bottom:24px;
+      margin-bottom:28px;
     }
 
     .hero-main h1{
-      margin:0 0 14px;
-      font-size:1.18rem;
+      margin:0 0 12px;
+      font-size:1rem;
+      line-height:1.8;
       font-weight:700;
-      line-height:1.7;
-      letter-spacing:0;
       color:var(--text);
-      max-width:1100px;
     }
 
     .lead{
       margin:0;
       color:var(--muted);
-      font-size:1rem;
-      max-width:1150px;
-      line-height:1.95;
+      font-size:.96rem;
+      line-height:1.9;
     }
 
     .cta{
       display:flex;
       gap:12px;
       flex-wrap:wrap;
-      margin-top:20px;
+      margin-top:18px;
     }
 
     .btn{
       display:inline-block;
-      padding:11px 18px;
+      padding:10px 16px;
       border-radius:10px;
       font-weight:700;
       border:1px solid transparent;
-      font-size:.95rem;
+      font-size:.94rem;
     }
 
     .btn-primary{
@@ -224,7 +187,7 @@
     }
 
     section{
-      padding:12px 0 18px;
+      padding:10px 0 18px;
     }
 
     .section-title{
@@ -235,9 +198,9 @@
     }
 
     .section-note{
-      margin:0 0 16px;
+      margin:0 0 14px;
       color:var(--muted);
-      font-size:.98rem;
+      font-size:.97rem;
     }
 
     .grid{
@@ -258,7 +221,7 @@
       border:1px solid var(--line);
       border-radius:16px;
       padding:22px;
-      box-shadow:0 4px 14px rgba(20,35,60,.035);
+      box-shadow:0 4px 14px rgba(20,35,60,.03);
     }
 
     .card h3{
@@ -282,14 +245,14 @@
       border-radius:14px;
       padding:16px 18px;
       color:var(--muted);
-      box-shadow:0 4px 14px rgba(20,35,60,.03);
       font-size:.96rem;
+      box-shadow:0 4px 14px rgba(20,35,60,.03);
     }
 
     .contact-box{
       background:#fff;
       border:1px solid var(--line);
-      border-radius:18px;
+      border-radius:16px;
       padding:24px;
       box-shadow:var(--shadow);
     }
@@ -311,7 +274,9 @@
     }
 
     footer{
-      padding:20px 0 34px;
+      width:min(920px,92%);
+      margin:0 auto;
+      padding:14px 0 34px;
       color:var(--muted);
       font-size:.92rem;
     }
@@ -330,50 +295,53 @@
       }
 
       .hero-band{
-        min-height:220px;
+        min-height:180px;
       }
 
       .hero-band-inner{
-        min-height:220px;
+        min-height:180px;
       }
 
-      .hero-band-title{
-        font-size:clamp(2.2rem,10vw,3.5rem);
+      .hero-title{
+        font-size:clamp(2rem,10vw,3.2rem);
+        line-height:1.02;
       }
 
       .hero-main{
-        padding:22px 18px;
+        padding:18px 16px;
       }
 
       .hero-main h1{
-        font-size:1.02rem;
+        font-size:.96rem;
+      }
+
+      .container,
+      footer{
+        width:min(920px,94%);
       }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="page-wrap nav">
-      <div class="brand-top">POWERSHARES</div>
-      <div class="nav-right">
-        <a class="top-link" href="pricing.html">Pricing</a>
-        <a class="top-link" href="mailto:contact@powershares.jp">Email</a>
-        <div class="lang-switch">
-          <button id="btn-ja" class="active" type="button">日本語</button>
-          <button id="btn-en" type="button">English</button>
-        </div>
+    <div class="nav">
+      <a class="top-link" href="pricing.html">Pricing</a>
+      <a class="top-link" href="mailto:contact@powershares.jp">Email</a>
+      <div class="lang-switch">
+        <button id="btn-ja" class="active" type="button">日本語</button>
+        <button id="btn-en" type="button">English</button>
       </div>
     </div>
   </header>
 
   <div class="hero-band">
     <div class="hero-band-inner">
-      <div class="hero-brand-in-band">POWERSHARES</div>
-      <h2 class="hero-band-title">Japan Property Research</h2>
+      <div class="hero-brand">POWERSHARES</div>
+      <h2 class="hero-title">Japan Property<br>Research</h2>
     </div>
   </div>
 
-  <main class="content-wrap">
+  <main class="container">
     <div id="lang-ja" class="lang active">
       <section>
         <div class="hero-main">
@@ -579,7 +547,7 @@
     </div>
   </main>
 
-  <footer class="content-wrap">
+  <footer>
     <div>© PowerShares. All rights reserved.</div>
   </footer>
 
