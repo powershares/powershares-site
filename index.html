@@ -3,107 +3,133 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PowerShares | Japan Property Research Service</title>
+  <title>PowerShares | Japan Property Research, Photo & Video Service</title>
   <style>
     :root{
-      --bg:#0b1220;
+      --bg:#08101d;
+      --bg2:#0b1220;
       --card:#121b2e;
-      --line:#24324f;
-      --text:#f3f6ff;
-      --muted:#b8c3d9;
-      --accent:#6ea8ff;
-      --accent2:#9fd3ff;
-      --warn:#ffdca8;
+      --card2:#16223a;
+      --line:#263657;
+      --text:#f4f7ff;
+      --muted:#b9c4d9;
+      --accent:#8fb3ff;
+      --accent2:#d7e4ff;
+      --gold:#d8c08b;
     }
     *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{
       margin:0;
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-      background:linear-gradient(180deg,#08101d 0%, #0b1220 100%);
+      background:linear-gradient(180deg,var(--bg) 0%, var(--bg2) 100%);
       color:var(--text);
-      line-height:1.7;
+      line-height:1.75;
+      letter-spacing:.01em;
     }
     a{color:var(--accent2);text-decoration:none}
     a:hover{text-decoration:underline}
     .wrap{
-      width:min(1100px,92%);
+      width:min(1120px,92%);
       margin:0 auto;
     }
     header{
-      border-bottom:1px solid rgba(255,255,255,.08);
       position:sticky;
       top:0;
-      backdrop-filter:blur(10px);
-      background:rgba(8,16,29,.88);
       z-index:10;
+      backdrop-filter:blur(10px);
+      background:rgba(8,16,29,.84);
+      border-bottom:1px solid rgba(255,255,255,.08);
     }
     .nav{
       display:flex;
-      align-items:center;
       justify-content:space-between;
-      gap:16px;
-      padding:14px 0;
+      align-items:center;
+      gap:20px;
+      padding:16px 0;
     }
     .brand{
-      font-size:1.15rem;
-      font-weight:700;
-      letter-spacing:.3px;
+      font-size:1.4rem;
+      font-weight:800;
+      letter-spacing:.02em;
+    }
+    .nav-right{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .top-link{
+      color:var(--muted);
+      font-size:.95rem;
+      padding:8px 10px;
+      border-radius:10px;
+    }
+    .top-link:hover{
+      background:rgba(255,255,255,.05);
+      text-decoration:none;
+      color:#fff;
     }
     .lang-switch{
       display:flex;
       gap:8px;
-      flex-wrap:wrap;
     }
     .lang-switch button{
       background:#16223a;
       color:#fff;
-      border:1px solid #2a3b61;
+      border:1px solid #2d3f63;
       border-radius:999px;
       padding:8px 14px;
       cursor:pointer;
-      font-weight:600;
+      font-weight:700;
+      font-size:.95rem;
     }
     .lang-switch button.active{
       background:var(--accent);
       color:#08101d;
       border-color:var(--accent);
     }
+
     .hero{
-      padding:72px 0 44px;
+      padding:58px 0 30px;
     }
     .hero-box{
-      background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01));
+      background:
+        radial-gradient(circle at top right, rgba(143,179,255,.12), transparent 28%),
+        linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
       border:1px solid rgba(255,255,255,.08);
-      border-radius:22px;
-      padding:42px 28px;
-      box-shadow:0 12px 40px rgba(0,0,0,.22);
+      border-radius:24px;
+      padding:42px 30px;
+      box-shadow:0 16px 40px rgba(0,0,0,.24);
     }
     .eyebrow{
       display:inline-block;
-      font-size:.85rem;
+      font-size:.84rem;
       color:var(--accent2);
-      background:rgba(110,168,255,.12);
-      border:1px solid rgba(110,168,255,.22);
+      background:rgba(143,179,255,.10);
+      border:1px solid rgba(143,179,255,.20);
       border-radius:999px;
       padding:6px 12px;
       margin-bottom:18px;
     }
     h1{
-      font-size:clamp(2rem,4.8vw,3.5rem);
-      line-height:1.15;
-      margin:0 0 16px;
+      margin:0 0 14px;
+      font-size:clamp(1.8rem,3.5vw,3rem);
+      line-height:1.18;
+      letter-spacing:-.01em;
+      max-width:980px;
     }
     .lead{
+      margin:0;
       color:var(--muted);
-      font-size:1.06rem;
-      max-width:850px;
-      margin:0 0 24px;
+      font-size:1rem;
+      max-width:880px;
     }
     .cta{
       display:flex;
       gap:12px;
       flex-wrap:wrap;
-      margin-top:20px;
+      margin-top:24px;
     }
     .btn{
       display:inline-block;
@@ -111,6 +137,7 @@
       border-radius:12px;
       font-weight:700;
       border:1px solid transparent;
+      font-size:.98rem;
     }
     .btn-primary{
       background:var(--accent);
@@ -119,92 +146,85 @@
     .btn-secondary{
       background:transparent;
       color:#fff;
-      border-color:#3b4d75;
+      border-color:#3a4c73;
     }
-    section{
-      padding:18px 0 22px;
-    }
+
+    section{padding:18px 0 24px}
     .section-title{
-      font-size:1.6rem;
-      margin:0 0 16px;
+      margin:0 0 12px;
+      font-size:1.75rem;
+      letter-spacing:-.01em;
     }
     .section-note{
+      margin:0 0 18px;
       color:var(--muted);
-      margin:0 0 22px;
     }
+
     .grid{
       display:grid;
       gap:18px;
     }
-    .grid-3{
-      grid-template-columns:repeat(3,1fr);
-    }
-    .grid-2{
-      grid-template-columns:repeat(2,1fr);
-    }
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    .grid-2{grid-template-columns:repeat(2,1fr)}
+
     .card{
-      background:var(--card);
+      background:linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.01));
       border:1px solid var(--line);
       border-radius:18px;
       padding:22px;
+      box-shadow:0 8px 24px rgba(0,0,0,.12);
     }
     .card h3{
       margin:0 0 10px;
-      font-size:1.08rem;
+      font-size:1.15rem;
     }
     .card p{
       margin:0;
       color:var(--muted);
+      font-size:1rem;
     }
-    .price{
-      font-size:1.7rem;
-      font-weight:800;
-      margin:10px 0 8px;
-    }
-    .small{
-      font-size:.95rem;
+
+    .highlight{
+      background:linear-gradient(180deg, #16233d, #121c31);
+      border:1px solid #33476f;
+      border-left:4px solid var(--gold);
+      border-radius:16px;
+      padding:18px 20px;
       color:var(--muted);
     }
-    ul.clean{
-      padding-left:18px;
-      margin:12px 0 0;
-      color:var(--muted);
-    }
+
     .contact-box{
       background:linear-gradient(180deg,#13203a,#10192d);
       border:1px solid #32456f;
       border-radius:20px;
-      padding:24px;
+      padding:26px;
     }
-    .note-box{
-      background:#1b2437;
-      border:1px solid #3a496a;
-      border-left:4px solid var(--warn);
-      border-radius:14px;
-      padding:16px 18px;
+    ul.clean{
+      padding-left:20px;
+      margin:12px 0 0;
       color:var(--muted);
+    }
+    .mail{
+      font-size:1.2rem;
+      font-weight:700;
+      margin-top:18px;
+      word-break:break-word;
     }
     footer{
-      padding:34px 0 48px;
+      padding:28px 0 42px;
       color:var(--muted);
-      font-size:.95rem;
+      font-size:.94rem;
     }
-    .lang{
-      display:none;
-    }
-    .lang.active{
-      display:block;
-    }
-    @media (max-width: 860px){
-      .grid-3,.grid-2{
-        grid-template-columns:1fr;
-      }
-      .hero{
-        padding-top:34px;
-      }
-      .hero-box{
-        padding:26px 18px;
-      }
+
+    .lang{display:none}
+    .lang.active{display:block}
+
+    @media (max-width: 920px){
+      .grid-3,.grid-2{grid-template-columns:1fr}
+      .hero-box{padding:28px 18px}
+      .hero{padding-top:34px}
+      .nav{align-items:flex-start}
+      .nav-right{justify-content:flex-start}
     }
   </style>
 </head>
@@ -212,9 +232,14 @@
   <header>
     <div class="wrap nav">
       <div class="brand">PowerShares</div>
-      <div class="lang-switch">
-        <button id="btn-ja" class="active" type="button">日本語</button>
-        <button id="btn-en" type="button">English</button>
+      <div class="nav-right">
+        <a class="top-link" href="pricing.html">Pricing</a>
+        <a class="top-link" href="#contact-ja" onclick="setLang('ja')">Contact</a>
+        <a class="top-link" href="#contact-en" onclick="setLang('en')">Contact</a>
+        <div class="lang-switch">
+          <button id="btn-ja" class="active" type="button">日本語</button>
+          <button id="btn-en" type="button">English</button>
+        </div>
       </div>
     </div>
   </header>
@@ -223,102 +248,70 @@
     <div id="lang-ja" class="lang active">
       <section class="hero">
         <div class="hero-box">
-          <div class="eyebrow">日本の不動産現地調査サービス</div>
-          <h1>海外のお客様向けに、日本の不動産現地調査・写真撮影・動画編集を提供します。</h1>
+          <div class="eyebrow">日本不動産向け 現地調査・撮影サービス</div>
+          <h1>海外のお客様向けに、日本の不動産に関する現地確認、写真撮影、動画撮影、ドローン撮影のご相談を承ります。</h1>
           <p class="lead">
-            日本国内の物件について、現地の周辺状況確認、写真撮影、動画撮影、簡易レポート作成を行います。
-            遠方からでは分かりにくい現地の雰囲気や道路状況、近隣環境などを確認したい方に向けたサービスです。
+            物件周辺の公共交通機関、道路環境、近隣商業施設、建物外観などを現地で確認し、
+            写真・動画データとして納品します。神奈川県および東京都内を中心に対応しています。
+            その他エリアについては別途費用がかかりますので、ご相談ください。
           </p>
           <div class="cta">
-            <a class="btn btn-primary" href="mailto:info@example.com?subject=Property%20Research%20Inquiry">メールで相談する</a>
-            <a class="btn btn-secondary" href="#pricing-ja">料金を見る</a>
+            <a class="btn btn-primary" href="mailto:contact@powershares.jp?subject=Property%20Research%20Inquiry">メールで相談する</a>
+            <a class="btn btn-secondary" href="pricing.html">料金を見る</a>
           </div>
         </div>
       </section>
 
       <section>
         <h2 class="section-title">サービス内容</h2>
-        <p class="section-note">必要に応じて内容を組み合わせてご依頼いただけます。</p>
+        <p class="section-note">現地の実際の状況を、海外からでも判断しやすい形でお伝えします。</p>
         <div class="grid grid-3">
           <div class="card">
-            <h3>現地確認</h3>
-            <p>物件の外観、前面道路、周辺環境、最寄り施設などを現地で確認します。</p>
+            <h3>現地周辺確認</h3>
+            <p>最寄り駅やバス停などの公共交通機関、物件までの道路状況、周辺の街並みや利便性を確認します。</p>
           </div>
           <div class="card">
-            <h3>写真・動画撮影</h3>
-            <p>静止画だけでなく、周辺を含めた動画撮影にも対応します。遠方からの判断材料として活用できます。</p>
+            <h3>建物外観・周辺撮影</h3>
+            <p>建物外観、前面道路、周辺商業施設、近隣環境などを静止画・動画で撮影します。</p>
           </div>
           <div class="card">
-            <h3>編集・納品</h3>
-            <p>撮影した素材を整理し、見やすい形でお渡しします。内容に応じて簡単なコメントも添えます。</p>
+            <h3>ドローン撮影対応</h3>
+            <p>ご相談内容に応じて、ドローン撮影にも対応可能です。上空からの周辺確認にも活用できます。</p>
           </div>
         </div>
       </section>
 
       <section>
-        <h2 class="section-title">追加対応</h2>
-        <div class="grid grid-2">
-          <div class="card">
-            <h3>ドローン撮影</h3>
-            <p>ご相談内容によっては、ドローンを使った撮影にも対応可能です。</p>
-          </div>
-          <div class="card">
-            <h3>個別対応</h3>
-            <p>複数物件、広い敷地、周辺エリアの追加確認なども内容に応じて対応します。</p>
-          </div>
-        </div>
-        <div class="note-box" style="margin-top:18px;">
-          ドローン撮影もご相談可能です。ただし、撮影場所や内容により必要な許可が取得できない場合はお受けできません。
+        <div class="highlight">
+          ドローン撮影も対応可能ですが、撮影場所や内容により必要な許可が取得できない場合は受付できません。
         </div>
       </section>
 
       <section>
-        <h2 class="section-title">納品例</h2>
+        <h2 class="section-title">納品形式</h2>
+        <p class="section-note">プロフェッショナル用途を意識し、取り扱いやすいデータ形式で納品します。</p>
         <div class="grid grid-2">
           <div class="card">
-            <h3>写真セット</h3>
-            <p>物件外観、道路、周辺施設、駅までの導線などをまとめて納品します。</p>
+            <h3>静止画データ</h3>
+            <p>JPEG または PNG 形式で納品します。用途に応じて、見やすいサイズに整理してお渡しします。</p>
           </div>
           <div class="card">
-            <h3>動画レポート</h3>
-            <p>現地の雰囲気が伝わるように、短い動画にまとめてお渡しします。</p>
+            <h3>動画データ</h3>
+            <p>MP4 形式で納品します。共有しやすく、確認しやすいデータ形式でお渡しします。</p>
           </div>
         </div>
       </section>
 
-      <section id="pricing-ja">
-        <h2 class="section-title">料金の目安</h2>
-        <p class="section-note">内容・場所・撮影時間により変動します。正式なお見積りはメールでご案内します。</p>
-        <div class="grid grid-3">
+      <section>
+        <h2 class="section-title">対応エリア</h2>
+        <div class="grid grid-2">
           <div class="card">
-            <h3>基本調査</h3>
-            <div class="price">¥15,000〜</div>
-            <p class="small">現地確認 + 写真撮影</p>
-            <ul class="clean">
-              <li>外観確認</li>
-              <li>前面道路確認</li>
-              <li>写真納品</li>
-            </ul>
+            <h3>基本対応エリア</h3>
+            <p>神奈川県、東京都内</p>
           </div>
           <div class="card">
-            <h3>調査 + 動画</h3>
-            <div class="price">¥25,000〜</div>
-            <p class="small">現地確認 + 写真 + 動画撮影</p>
-            <ul class="clean">
-              <li>現地の雰囲気確認</li>
-              <li>動画撮影</li>
-              <li>整理して納品</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>個別見積り</h3>
-            <div class="price">Ask</div>
-            <p class="small">遠方案件・複数物件・追加調査・ドローン撮影</p>
-            <ul class="clean">
-              <li>複数候補地</li>
-              <li>長時間撮影</li>
-              <li>特別なご要望</li>
-            </ul>
+            <h3>その他エリア</h3>
+            <p>別途費用がかかります。案件内容と場所に応じてご案内します。</p>
           </div>
         </div>
       </section>
@@ -328,34 +321,30 @@
         <div class="grid grid-3">
           <div class="card">
             <h3>1. メール相談</h3>
-            <p>物件情報、所在地、ご希望内容をメールでお知らせください。</p>
+            <p>物件所在地またはURL、ご希望の調査内容、希望時期をメールでお知らせください。</p>
           </div>
           <div class="card">
             <h3>2. 内容確認</h3>
-            <p>対応可能か確認し、料金の目安とスケジュールをご案内します。</p>
+            <p>対応可能範囲、料金、スケジュールを確認し、ご案内します。</p>
           </div>
           <div class="card">
             <h3>3. 調査・納品</h3>
-            <p>現地確認後、写真・動画・簡易コメントをお送りします。</p>
+            <p>現地確認後、写真または動画データをメール打ち合わせに沿って納品します。</p>
           </div>
         </div>
       </section>
 
-      <section>
+      <section id="contact-ja">
         <div class="contact-box">
           <h2 class="section-title">お問い合わせ</h2>
-          <p class="section-note">
-            打ち合わせはメールで行います。下記内容を添えてご連絡ください。
-          </p>
+          <p class="section-note">詳細な打ち合わせはメールで行います。以下の情報を添えてご連絡ください。</p>
           <ul class="clean">
-            <li>物件の所在地またはURL</li>
+            <li>物件所在地またはURL</li>
             <li>希望する調査内容</li>
-            <li>納品希望形式（写真 / 動画 / 両方）</li>
+            <li>希望する納品形式（静止画 / 動画 / 両方）</li>
             <li>希望時期</li>
           </ul>
-          <p style="margin-top:18px;">
-            Email: <a href="mailto:info@example.com">info@example.com</a>
-          </p>
+          <div class="mail">Email: <a href="mailto:contact@powershares.jp">contact@powershares.jp</a></div>
         </div>
       </section>
     </div>
@@ -363,139 +352,103 @@
     <div id="lang-en" class="lang">
       <section class="hero">
         <div class="hero-box">
-          <div class="eyebrow">Japan Property Research Service</div>
-          <h1>On-site property research, photos, edited video reports, and optional drone filming in Japan for overseas clients.</h1>
+          <div class="eyebrow">Japan Property Research & Visual Report Service</div>
+          <h1>For overseas clients, we provide on-site property checks in Japan, including local area review, photo coverage, video capture, and optional drone filming.</h1>
           <p class="lead">
-            We provide local property checks in Japan, including neighborhood observation, photo capture, video capture, and simple reporting.
-            This service is designed for overseas clients who want a better understanding of a property's real local condition before making decisions.
+            We can cover nearby public transportation access, the route and environment around the property,
+            surrounding commercial facilities, building exterior condition, and more.
+            Our main service area is Kanagawa and Tokyo. Other areas may require additional fees, so please contact us in advance.
           </p>
           <div class="cta">
-            <a class="btn btn-primary" href="mailto:info@example.com?subject=Property%20Research%20Inquiry">Contact by Email</a>
-            <a class="btn btn-secondary" href="#pricing-en">View Pricing</a>
+            <a class="btn btn-primary" href="mailto:contact@powershares.jp?subject=Property%20Research%20Inquiry">Contact by Email</a>
+            <a class="btn btn-secondary" href="pricing.html">View Pricing</a>
           </div>
         </div>
       </section>
 
       <section>
         <h2 class="section-title">Services</h2>
-        <p class="section-note">You may request one service or combine multiple services as needed.</p>
+        <p class="section-note">Designed for overseas clients who need a clearer understanding of the actual local condition before making a decision.</p>
         <div class="grid grid-3">
           <div class="card">
-            <h3>On-Site Check</h3>
-            <p>We inspect the exterior, road access, nearby surroundings, and local environment of the property.</p>
+            <h3>Local Area Review</h3>
+            <p>We review nearby public transport access, roads leading to the property, and the surrounding neighborhood environment.</p>
           </div>
           <div class="card">
-            <h3>Photo & Video</h3>
-            <p>We provide both still images and video footage to help you understand the actual atmosphere of the area.</p>
+            <h3>Exterior Photo & Video Coverage</h3>
+            <p>We capture the building exterior, nearby streets, local commercial facilities, and surrounding conditions in photo and video format.</p>
           </div>
           <div class="card">
-            <h3>Editing & Delivery</h3>
-            <p>Captured materials are organized and delivered in a clear format, with brief comments when needed.</p>
+            <h3>Optional Drone Filming</h3>
+            <p>Drone filming may also be available depending on the location and request details.</p>
           </div>
         </div>
       </section>
 
       <section>
-        <h2 class="section-title">Additional Options</h2>
+        <div class="highlight">
+          Drone filming may be available, but we cannot accept the request if the required filming permissions cannot be obtained.
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Delivery Format</h2>
+        <p class="section-note">Materials are delivered in practical formats suitable for business review and remote decision-making.</p>
         <div class="grid grid-2">
           <div class="card">
-            <h3>Drone Filming</h3>
-            <p>Drone filming may also be available depending on the property and location.</p>
+            <h3>Still Image Files</h3>
+            <p>Delivered in JPEG or PNG format, organized for easy review and sharing.</p>
           </div>
           <div class="card">
-            <h3>Custom Requests</h3>
-            <p>We may also support multiple properties, larger sites, or wider neighborhood checks depending on the request.</p>
+            <h3>Video Files</h3>
+            <p>Delivered in MP4 format for smooth playback, sharing, and review.</p>
           </div>
-        </div>
-        <div class="note-box" style="margin-top:18px;">
-          Drone filming is available upon request. However, if the required filming permissions cannot be obtained, we cannot accept the request.
         </div>
       </section>
 
       <section>
-        <h2 class="section-title">Delivery Examples</h2>
+        <h2 class="section-title">Service Area</h2>
         <div class="grid grid-2">
           <div class="card">
-            <h3>Photo Package</h3>
-            <p>Exterior, access road, nearby facilities, and route surroundings can be delivered as a photo set.</p>
+            <h3>Main Coverage Area</h3>
+            <p>Kanagawa and Tokyo</p>
           </div>
           <div class="card">
-            <h3>Video Report</h3>
-            <p>A short edited video can be provided to show the real atmosphere of the area and the property surroundings.</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="pricing-en">
-        <h2 class="section-title">Pricing Guide</h2>
-        <p class="section-note">Pricing depends on location, scope, and required shooting time. A formal quote will be provided by email.</p>
-        <div class="grid grid-3">
-          <div class="card">
-            <h3>Basic Research</h3>
-            <div class="price">JPY 15,000+</div>
-            <p class="small">On-site check + photo package</p>
-            <ul class="clean">
-              <li>Exterior review</li>
-              <li>Road access check</li>
-              <li>Photo delivery</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>Research + Video</h3>
-            <div class="price">JPY 25,000+</div>
-            <p class="small">On-site check + photos + video</p>
-            <ul class="clean">
-              <li>Area atmosphere review</li>
-              <li>Video capture</li>
-              <li>Organized delivery</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>Custom Quote</h3>
-            <div class="price">Ask</div>
-            <p class="small">Long distance / multiple properties / additional checks / drone filming</p>
-            <ul class="clean">
-              <li>Multiple locations</li>
-              <li>Longer filming time</li>
-              <li>Special requests</li>
-            </ul>
+            <h3>Other Areas</h3>
+            <p>Additional fees may apply depending on the location. Please contact us for details.</p>
           </div>
         </div>
       </section>
 
       <section>
-        <h2 class="section-title">How It Works</h2>
+        <h2 class="section-title">Process</h2>
         <div class="grid grid-3">
           <div class="card">
             <h3>1. Email Inquiry</h3>
-            <p>Please send the property address, listing URL, and your requested scope by email.</p>
+            <p>Please send the property address or listing URL, your requested scope, and preferred timing.</p>
           </div>
           <div class="card">
             <h3>2. Scope Confirmation</h3>
-            <p>We confirm feasibility and send you a schedule and estimated price.</p>
+            <p>We confirm feasibility, pricing, and schedule before proceeding.</p>
           </div>
           <div class="card">
             <h3>3. Research & Delivery</h3>
-            <p>After the on-site visit, we deliver photos, video materials, and simple comments.</p>
+            <p>After the on-site visit, we deliver the requested photo and/or video data.</p>
           </div>
         </div>
       </section>
 
-      <section>
+      <section id="contact-en">
         <div class="contact-box">
           <h2 class="section-title">Contact</h2>
-          <p class="section-note">
-            Initial discussion will be handled by email. Please include the following information.
-          </p>
+          <p class="section-note">Initial discussion will be handled by email. Please include the following information.</p>
           <ul class="clean">
             <li>Property address or listing URL</li>
             <li>Requested scope of research</li>
-            <li>Preferred delivery format (photos / video / both)</li>
+            <li>Preferred delivery format (still images / video / both)</li>
             <li>Preferred timing</li>
           </ul>
-          <p style="margin-top:18px;">
-            Email: <a href="mailto:info@example.com">info@example.com</a>
-          </p>
+          <div class="mail">Email: <a href="mailto:contact@powershares.jp">contact@powershares.jp</a></div>
         </div>
       </section>
     </div>
@@ -511,21 +464,24 @@
     const ja = document.getElementById('lang-ja');
     const en = document.getElementById('lang-en');
 
-    btnJa.addEventListener('click', () => {
-      ja.classList.add('active');
-      en.classList.remove('active');
-      btnJa.classList.add('active');
-      btnEn.classList.remove('active');
-      document.documentElement.lang = 'ja';
-    });
+    function setLang(lang){
+      if(lang === 'en'){
+        en.classList.add('active');
+        ja.classList.remove('active');
+        btnEn.classList.add('active');
+        btnJa.classList.remove('active');
+        document.documentElement.lang = 'en';
+      } else {
+        ja.classList.add('active');
+        en.classList.remove('active');
+        btnJa.classList.add('active');
+        btnEn.classList.remove('active');
+        document.documentElement.lang = 'ja';
+      }
+    }
 
-    btnEn.addEventListener('click', () => {
-      en.classList.add('active');
-      ja.classList.remove('active');
-      btnEn.classList.add('active');
-      btnJa.classList.remove('active');
-      document.documentElement.lang = 'en';
-    });
+    btnJa.addEventListener('click', () => setLang('ja'));
+    btnEn.addEventListener('click', () => setLang('en'));
   </script>
 </body>
 </html>
