@@ -6,201 +6,227 @@
   <title>PowerShares | Pricing</title>
   <style>
     :root{
-      --bg:#08101d;
-      --bg2:#0b1220;
-      --card:#121b2e;
-      --line:#263657;
-      --text:#f4f7ff;
-      --muted:#b9c4d9;
-      --accent:#8fb3ff;
-      --accent2:#d7e4ff;
-      --gold:#d8c08b;
+      --bg:#f7f8fb;
+      --white:#ffffff;
+      --text:#182235;
+      --muted:#5f6b80;
+      --navy:#1f3558;
+      --navy-soft:#314b75;
+      --line:#dde3ec;
+      --shadow:0 10px 30px rgba(20,35,60,.08);
     }
     *{box-sizing:border-box}
     body{
       margin:0;
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-      background:linear-gradient(180deg,var(--bg) 0%, var(--bg2) 100%);
+      background:var(--bg);
       color:var(--text);
       line-height:1.75;
     }
-    a{color:var(--accent2);text-decoration:none}
+    a{color:var(--navy);text-decoration:none}
     a:hover{text-decoration:underline}
     .wrap{
       width:min(1120px,92%);
       margin:0 auto;
     }
     header{
+      background:rgba(255,255,255,.92);
+      backdrop-filter:blur(8px);
+      border-bottom:1px solid var(--line);
       position:sticky;
       top:0;
-      z-index:10;
-      backdrop-filter:blur(10px);
-      background:rgba(8,16,29,.84);
-      border-bottom:1px solid rgba(255,255,255,.08);
+      z-index:20;
     }
     .nav{
       display:flex;
-      justify-content:space-between;
       align-items:center;
-      gap:20px;
-      padding:16px 0;
+      justify-content:space-between;
+      gap:16px;
+      padding:14px 0;
     }
     .brand{
-      font-size:1.4rem;
+      font-size:.92rem;
       font-weight:800;
+      letter-spacing:.18em;
+      color:var(--navy);
     }
     .nav-right{
       display:flex;
       align-items:center;
-      gap:12px;
+      gap:10px;
       flex-wrap:wrap;
     }
     .top-link{
       color:var(--muted);
-      font-size:.95rem;
+      font-size:.92rem;
       padding:8px 10px;
       border-radius:10px;
     }
     .top-link:hover{
-      background:rgba(255,255,255,.05);
+      background:#eef2f7;
+      color:var(--navy);
       text-decoration:none;
-      color:#fff;
     }
     .lang-switch{
       display:flex;
       gap:8px;
     }
     .lang-switch button{
-      background:#16223a;
-      color:#fff;
-      border:1px solid #2d3f63;
+      background:var(--white);
+      color:var(--navy);
+      border:1px solid #cfd8e6;
       border-radius:999px;
       padding:8px 14px;
       cursor:pointer;
       font-weight:700;
-      font-size:.95rem;
+      font-size:.9rem;
     }
     .lang-switch button.active{
-      background:var(--accent);
-      color:#08101d;
-      border-color:var(--accent);
+      background:var(--navy);
+      color:#fff;
+      border-color:var(--navy);
     }
+
     .hero{
-      padding:50px 0 24px;
+      padding:34px 0 24px;
     }
-    .hero-box{
-      background:
-        radial-gradient(circle at top right, rgba(143,179,255,.12), transparent 30%),
-        linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:24px;
-      padding:36px 28px;
-      box-shadow:0 16px 40px rgba(0,0,0,.24);
+    .hero-band{
+      background:linear-gradient(135deg, #1b2f4f 0%, #2c4872 100%);
+      color:#fff;
+      border-radius:22px;
+      padding:26px 28px;
+      box-shadow:var(--shadow);
+      margin-bottom:22px;
     }
-    .eyebrow{
-      display:inline-block;
-      font-size:.84rem;
-      color:var(--accent2);
-      background:rgba(143,179,255,.10);
-      border:1px solid rgba(143,179,255,.20);
-      border-radius:999px;
-      padding:6px 12px;
-      margin-bottom:18px;
+    .hero-band-title{
+      font-size:clamp(1.5rem,3vw,2.35rem);
+      line-height:1.2;
+      font-weight:800;
+      margin:0;
+    }
+    .hero-main{
+      background:var(--white);
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:32px 28px;
+      box-shadow:var(--shadow);
     }
     h1{
       margin:0 0 12px;
-      font-size:clamp(1.8rem,3.2vw,2.7rem);
-      line-height:1.2;
+      font-size:clamp(1.6rem,2.8vw,2.3rem);
+      line-height:1.22;
+      letter-spacing:-.02em;
     }
     .lead{
       margin:0;
       color:var(--muted);
-      max-width:880px;
-      font-size:1rem;
+      font-size:.98rem;
+      max-width:860px;
     }
-    section{padding:20px 0 24px}
+
+    section{
+      padding:18px 0 22px;
+    }
     .section-title{
-      margin:0 0 12px;
-      font-size:1.75rem;
+      margin:0 0 10px;
+      font-size:1.45rem;
     }
     .section-note{
-      margin:0 0 18px;
+      margin:0 0 16px;
       color:var(--muted);
+      font-size:.96rem;
     }
+
     .grid{
       display:grid;
       gap:18px;
     }
-    .grid-3{grid-template-columns:repeat(3,1fr)}
-    .grid-2{grid-template-columns:repeat(2,1fr)}
+    .grid-3{
+      grid-template-columns:repeat(3,1fr);
+    }
+    .grid-2{
+      grid-template-columns:repeat(2,1fr);
+    }
     .card{
-      background:linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.01));
+      background:var(--white);
       border:1px solid var(--line);
       border-radius:18px;
-      padding:24px;
-      box-shadow:0 8px 24px rgba(0,0,0,.12);
+      padding:22px;
+      box-shadow:0 6px 18px rgba(20,35,60,.04);
     }
     .card h3{
       margin:0 0 10px;
-      font-size:1.2rem;
+      font-size:1.06rem;
+      color:var(--navy);
     }
     .card p{
       margin:0;
       color:var(--muted);
+      font-size:.95rem;
     }
     .price{
-      font-size:2.1rem;
+      font-size:1.9rem;
       font-weight:800;
-      margin:12px 0 8px;
+      margin:10px 0 8px;
+      color:var(--navy);
       letter-spacing:-.02em;
     }
     .sub{
       color:var(--muted);
-      font-size:.96rem;
+      font-size:.92rem;
     }
     ul.clean{
       padding-left:20px;
       margin:14px 0 0;
       color:var(--muted);
+      font-size:.95rem;
     }
-    .highlight{
-      background:linear-gradient(180deg, #16233d, #121c31);
-      border:1px solid #33476f;
-      border-left:4px solid var(--gold);
+
+    .notice{
+      background:#fff;
+      border:1px solid var(--line);
+      border-left:4px solid var(--navy);
       border-radius:16px;
-      padding:18px 20px;
+      padding:16px 18px;
       color:var(--muted);
+      box-shadow:0 6px 18px rgba(20,35,60,.04);
     }
+
     .contact-box{
-      background:linear-gradient(180deg,#13203a,#10192d);
-      border:1px solid #32456f;
+      background:var(--white);
+      border:1px solid var(--line);
       border-radius:20px;
-      padding:26px;
+      padding:24px;
+      box-shadow:var(--shadow);
     }
     .mail{
-      font-size:1.2rem;
+      font-size:1.05rem;
       font-weight:700;
       margin-top:18px;
       word-break:break-word;
+      color:var(--navy);
     }
+
     footer{
-      padding:28px 0 42px;
+      padding:26px 0 40px;
       color:var(--muted);
-      font-size:.94rem;
+      font-size:.92rem;
     }
+
     .lang{display:none}
     .lang.active{display:block}
 
     @media (max-width: 920px){
       .grid-3,.grid-2{grid-template-columns:1fr}
-      .hero-box{padding:26px 18px}
+      .hero-main{padding:24px 18px}
+      .hero-band{padding:22px 18px}
     }
   </style>
 </head>
 <body>
   <header>
     <div class="wrap nav">
-      <div class="brand">PowerShares</div>
+      <div class="brand">POWERSHARES</div>
       <div class="nav-right">
         <a class="top-link" href="index.html">Home</a>
         <a class="top-link" href="mailto:contact@powershares.jp">Email</a>
@@ -215,11 +241,13 @@
   <main class="wrap">
     <div id="lang-ja" class="lang active">
       <section class="hero">
-        <div class="hero-box">
-          <div class="eyebrow">Pricing</div>
+        <div class="hero-band">
+          <h2 class="hero-band-title">Japan Property Research</h2>
+        </div>
+        <div class="hero-main">
           <h1>料金のご案内</h1>
           <p class="lead">
-            海外のお客様向けに、日本国内の不動産に関する現地調査・撮影サービスを提供しています。
+            海外のお客様向けに、日本国内の不動産に関する現地確認・撮影サービスを提供しています。
             神奈川県および東京都内を基本対応エリアとし、その他エリアは別途費用がかかります。
           </p>
         </div>
@@ -249,7 +277,7 @@
               <li>静止画撮影一式</li>
               <li>動画撮影</li>
               <li>MP4 データ納品</li>
-              <li>遠隔確認向けの見やすい形式で整理</li>
+              <li>確認しやすい形で整理して納品</li>
             </ul>
           </div>
 
@@ -291,7 +319,7 @@
       </section>
 
       <section>
-        <div class="highlight">
+        <div class="notice">
           ドローン撮影はオプション対応です。必要な撮影許可が取得できない場合は受付できません。
         </div>
       </section>
@@ -321,9 +349,11 @@
 
     <div id="lang-en" class="lang">
       <section class="hero">
-        <div class="hero-box">
-          <div class="eyebrow">Pricing</div>
-          <h1>Service Pricing</h1>
+        <div class="hero-band">
+          <h2 class="hero-band-title">Japan Property Research</h2>
+        </div>
+        <div class="hero-main">
+          <h1>Pricing</h1>
           <p class="lead">
             We provide on-site property research and visual reporting services in Japan for overseas clients.
             Our main coverage area is Kanagawa and Tokyo. Other locations may require additional charges.
@@ -397,7 +427,7 @@
       </section>
 
       <section>
-        <div class="highlight">
+        <div class="notice">
           Drone filming is an optional service. We cannot accept the request if the necessary filming permissions cannot be obtained.
         </div>
       </section>
