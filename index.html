@@ -24,6 +24,10 @@
       --card-yellow:rgba(232, 223, 171, .48);
       --card-pink:rgba(232, 196, 196, .44);
       --hero-box-blue:rgba(198, 192, 230, .42);
+
+      --process-1:rgba(255, 205, 210, .38);
+      --process-2:rgba(255, 236, 179, .42);
+      --process-3:rgba(200, 230, 201, .40);
     }
 
     *{box-sizing:border-box}
@@ -289,6 +293,21 @@
       color:#43506a;
     }
 
+    .process-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:18px;
+      align-items:stretch;
+    }
+
+    .process-card{
+      min-height:100%;
+    }
+
+    .process-card.step1{ background:var(--process-1); }
+    .process-card.step2{ background:var(--process-2); }
+    .process-card.step3{ background:var(--process-3); }
+
     .contact-box{
       background:#fff;
       border:1px solid var(--line);
@@ -350,7 +369,8 @@
     }
 
     @media (max-width: 980px){
-      .grid-2{
+      .grid-2,
+      .process-grid{
         grid-template-columns:1fr;
       }
 
@@ -444,7 +464,7 @@
           <h1>We provide on-site property research in Japan for overseas clients, including local area review, still images, video coverage, and optional drone filming.</h1>
           <p class="lead">
             We can cover nearby public transportation access, the route and environment around the property, surrounding commercial facilities, and the building exterior.
-            Our main service area is Kanagawa and Tokyo. Other areas may require additional fees.
+            Our main service area is Kanagawa and Tokyo. Other areas may require additional fees. Orders from within Japan are also accepted.
           </p>
           <div class="cta">
             <a class="btn btn-primary" href="mailto:contact@powershares.jp?subject=Property%20Research%20Inquiry">Contact by Email</a>
@@ -459,7 +479,7 @@
         <div class="grid grid-2">
           <div class="card green">
             <h3>Local Area Review</h3>
-            <p>We review nearby public transport access, roads leading to the property, and the surrounding environment.</p>
+            <p>We photograph nearby public transport facilities, the road conditions leading to the property, and the surrounding living environment.</p>
           </div>
 
           <div class="card blue">
@@ -511,16 +531,18 @@
 
       <section>
         <div class="section-head"><h2 class="section-title">Process</h2></div>
-        <div class="grid grid-2">
-          <div class="card">
+        <div class="process-grid">
+          <div class="card process-card step1">
             <h3>1. Email Inquiry</h3>
             <p>Please send the property address or listing URL, your requested scope, and preferred timing.</p>
           </div>
-          <div class="card">
+
+          <div class="card process-card step2">
             <h3>2. Scope Confirmation</h3>
             <p>We confirm feasibility, pricing, and schedule before proceeding.</p>
           </div>
-          <div class="card">
+
+          <div class="card process-card step3">
             <h3>3. Research & Delivery</h3>
             <p>After the on-site visit, we deliver the requested image and/or video data.</p>
           </div>
@@ -555,7 +577,7 @@
           <h1>海外のお客様向けに、日本国内の不動産に関する現地確認、写真撮影、動画撮影、ドローン撮影のご相談を承ります。</h1>
           <p class="lead">
             近隣の公共交通施設、物件までの道路環境、周辺商業施設、建物外観などを現地で確認し、写真・動画データとして納品します。
-            神奈川県および東京都内を中心に対応しています。その他エリアは別途費用がかかりますので、ご相談ください。
+            神奈川県および東京都内を中心に対応しています。その他エリアは別途費用がかかりますので、ご相談ください。日本国内からの発注もお受けいたします。
           </p>
           <div class="cta">
             <a class="btn btn-primary" href="mailto:contact@powershares.jp?subject=Property%20Research%20Inquiry">メールで相談する</a>
@@ -570,7 +592,7 @@
         <div class="grid grid-2">
           <div class="card green">
             <h3>現地周辺確認</h3>
-            <p>最寄り駅やバス停などの公共交通施設、物件までの道路状況、周辺の生活環境を確認します。</p>
+            <p>最寄り駅やバス停などの公共交通施設、物件までの道路状況、周辺の生活環境を撮影します。</p>
           </div>
 
           <div class="card blue">
@@ -622,16 +644,18 @@
 
       <section>
         <div class="section-head"><h2 class="section-title">Process</h2></div>
-        <div class="grid grid-2">
-          <div class="card">
+        <div class="process-grid">
+          <div class="card process-card step1">
             <h3>1. Email Inquiry</h3>
             <p>物件所在地またはURL、ご希望内容、希望時期をメールでお知らせください。</p>
           </div>
-          <div class="card">
+
+          <div class="card process-card step2">
             <h3>2. Scope Confirmation</h3>
             <p>対応範囲、料金、スケジュールの目安をご案内します。</p>
           </div>
-          <div class="card">
+
+          <div class="card process-card step3">
             <h3>3. Research & Delivery</h3>
             <p>現地確認後、写真または動画データを納品します。</p>
           </div>
