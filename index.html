@@ -6,248 +6,358 @@
   <title>PowerShares | Japan Property Research</title>
   <style>
     :root{
-      --bg:#f7f8fb;
+      --bg:#f4f4f6;
       --white:#ffffff;
-      --text:#182235;
-      --muted:#5f6b80;
-      --navy:#1f3558;
-      --navy-soft:#314b75;
-      --line:#dde3ec;
-      --shadow:0 10px 30px rgba(20,35,60,.08);
+      --text:#1d2740;
+      --muted:#5e6a80;
+      --navy:#233a66;
+      --navy-dark:#070b14;
+      --navy-deep:#0b1120;
+      --line:#d7dde7;
+      --shadow:0 10px 26px rgba(20,35,60,.06);
     }
+
     *{box-sizing:border-box}
+
     html{scroll-behavior:smooth}
+
     body{
       margin:0;
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
       background:var(--bg);
       color:var(--text);
-      line-height:1.75;
+      line-height:1.8;
     }
-    a{color:var(--navy);text-decoration:none}
-    a:hover{text-decoration:underline}
-    .wrap{
-      width:min(1120px,92%);
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .page-wrap{
+      width:min(1520px,96%);
       margin:0 auto;
     }
+
     header{
-      background:rgba(255,255,255,.92);
-      backdrop-filter:blur(8px);
+      background:rgba(255,255,255,.96);
       border-bottom:1px solid var(--line);
       position:sticky;
       top:0;
-      z-index:20;
+      z-index:30;
+      backdrop-filter:blur(8px);
     }
+
     .nav{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:16px;
+      gap:20px;
       padding:14px 0;
     }
-    .brand{
-      font-size:.92rem;
+
+    .brand-top{
+      font-size:.9rem;
       font-weight:800;
-      letter-spacing:.18em;
+      letter-spacing:.22em;
       color:var(--navy);
     }
+
     .nav-right{
       display:flex;
       align-items:center;
-      gap:10px;
+      gap:14px;
       flex-wrap:wrap;
     }
+
     .top-link{
-      color:var(--muted);
-      font-size:.92rem;
-      padding:8px 10px;
-      border-radius:10px;
+      color:#5b6780;
+      font-size:.95rem;
     }
+
     .top-link:hover{
-      background:#eef2f7;
       color:var(--navy);
-      text-decoration:none;
     }
+
     .lang-switch{
       display:flex;
       gap:8px;
     }
+
     .lang-switch button{
-      background:var(--white);
+      background:#fff;
       color:var(--navy);
-      border:1px solid #cfd8e6;
+      border:1px solid #cbd4e2;
       border-radius:999px;
-      padding:8px 14px;
+      padding:8px 16px;
       cursor:pointer;
       font-weight:700;
-      font-size:.9rem;
+      font-size:.95rem;
     }
+
     .lang-switch button.active{
       background:var(--navy);
       color:#fff;
       border-color:var(--navy);
     }
 
-    .hero{
-      padding:34px 0 26px;
-    }
     .hero-band{
-      background:linear-gradient(135deg, #1b2f4f 0%, #2c4872 100%);
-      color:#fff;
-      border-radius:22px;
-      padding:26px 28px;
-      box-shadow:var(--shadow);
-      margin-bottom:22px;
+      width:100%;
+      min-height:300px;
+      background:
+        radial-gradient(circle at 88% 28%, rgba(255,255,255,.12), transparent 18%),
+        radial-gradient(circle at 82% 38%, rgba(255,255,255,.08), transparent 24%),
+        linear-gradient(180deg, #06080f 0%, #0a0f1b 100%);
+      position:relative;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-bottom:1px solid rgba(255,255,255,.08);
     }
-    .hero-band-title{
-      font-size:clamp(1.6rem,3.2vw,2.5rem);
-      line-height:1.2;
+
+    .hero-band::after{
+      content:"";
+      position:absolute;
+      right:-6%;
+      top:-10%;
+      width:46%;
+      height:140%;
+      background:
+        radial-gradient(circle at center, rgba(255,255,255,.08), transparent 58%);
+      opacity:.45;
+      pointer-events:none;
+      filter:blur(16px);
+    }
+
+    .hero-band-inner{
+      width:min(1700px,98%);
+      margin:0 auto;
+      min-height:300px;
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:40px 24px;
+    }
+
+    .hero-brand-in-band{
+      position:absolute;
+      left:18px;
+      top:18px;
+      font-size:.95rem;
       font-weight:800;
-      letter-spacing:-.02em;
+      letter-spacing:.24em;
+      color:#fff;
+      opacity:.95;
+    }
+
+    .hero-band-title{
       margin:0;
+      color:#fff;
+      text-align:center;
+      font-family:Georgia,"Times New Roman",Times,serif;
+      font-size:clamp(3.4rem,7vw,5.8rem);
+      font-weight:400;
+      line-height:1;
+      letter-spacing:.01em;
+    }
+
+    .content-wrap{
+      width:min(1520px,96%);
+      margin:0 auto;
+      padding:26px 0 44px;
     }
 
     .hero-main{
       background:var(--white);
       border:1px solid var(--line);
-      border-radius:22px;
-      padding:36px 30px;
+      border-radius:18px;
+      padding:28px 28px 24px;
       box-shadow:var(--shadow);
+      margin-bottom:24px;
     }
-    h1{
+
+    .hero-main h1{
       margin:0 0 14px;
-      font-size:clamp(1.65rem,3vw,2.45rem);
-      line-height:1.22;
-      letter-spacing:-.02em;
-      max-width:920px;
+      font-size:1.18rem;
+      font-weight:700;
+      line-height:1.7;
+      letter-spacing:0;
+      color:var(--text);
+      max-width:1100px;
     }
+
     .lead{
       margin:0;
       color:var(--muted);
-      max-width:880px;
-      font-size:.98rem;
+      font-size:1rem;
+      max-width:1150px;
+      line-height:1.95;
     }
+
     .cta{
       display:flex;
       gap:12px;
       flex-wrap:wrap;
-      margin-top:22px;
+      margin-top:20px;
     }
+
     .btn{
       display:inline-block;
       padding:11px 18px;
-      border-radius:12px;
+      border-radius:10px;
       font-weight:700;
       border:1px solid transparent;
-      font-size:.94rem;
+      font-size:.95rem;
     }
+
     .btn-primary{
       background:var(--navy);
       color:#fff;
     }
+
     .btn-secondary{
       background:#fff;
       color:var(--navy);
-      border-color:#ccd5e2;
+      border-color:#cfd7e4;
     }
 
     section{
-      padding:18px 0 22px;
+      padding:12px 0 18px;
     }
+
     .section-title{
       margin:0 0 10px;
-      font-size:1.45rem;
-      letter-spacing:-.01em;
+      font-size:1.55rem;
+      font-weight:800;
+      color:var(--text);
     }
+
     .section-note{
       margin:0 0 16px;
       color:var(--muted);
-      font-size:.96rem;
+      font-size:.98rem;
     }
 
     .grid{
       display:grid;
       gap:18px;
     }
+
     .grid-3{
-      grid-template-columns:repeat(3,1fr);
+      grid-template-columns:repeat(3,minmax(0,1fr));
     }
+
     .grid-2{
-      grid-template-columns:repeat(2,1fr);
+      grid-template-columns:repeat(2,minmax(0,1fr));
     }
+
     .card{
-      background:var(--white);
+      background:#fff;
       border:1px solid var(--line);
-      border-radius:18px;
+      border-radius:16px;
       padding:22px;
-      box-shadow:0 6px 18px rgba(20,35,60,.04);
+      box-shadow:0 4px 14px rgba(20,35,60,.035);
     }
+
     .card h3{
       margin:0 0 10px;
-      font-size:1.06rem;
+      font-size:1.05rem;
+      font-weight:800;
       color:var(--navy);
     }
+
     .card p{
       margin:0;
       color:var(--muted);
-      font-size:.95rem;
+      font-size:.96rem;
+      line-height:1.9;
     }
 
     .notice{
       background:#fff;
       border:1px solid var(--line);
       border-left:4px solid var(--navy);
-      border-radius:16px;
+      border-radius:14px;
       padding:16px 18px;
       color:var(--muted);
-      box-shadow:0 6px 18px rgba(20,35,60,.04);
+      box-shadow:0 4px 14px rgba(20,35,60,.03);
+      font-size:.96rem;
     }
 
     .contact-box{
-      background:var(--white);
+      background:#fff;
       border:1px solid var(--line);
-      border-radius:20px;
+      border-radius:18px;
       padding:24px;
       box-shadow:var(--shadow);
     }
+
     ul.clean{
-      padding-left:20px;
+      padding-left:22px;
       margin:12px 0 0;
       color:var(--muted);
-      font-size:.95rem;
+      font-size:.96rem;
+      line-height:1.9;
     }
+
     .mail{
-      font-size:1.05rem;
-      font-weight:700;
       margin-top:18px;
-      word-break:break-word;
+      font-size:1.02rem;
+      font-weight:700;
       color:var(--navy);
+      word-break:break-word;
     }
 
     footer{
-      padding:26px 0 40px;
+      padding:20px 0 34px;
       color:var(--muted);
       font-size:.92rem;
     }
 
-    .lang{display:none}
-    .lang.active{display:block}
+    .lang{
+      display:none;
+    }
 
-    @media (max-width: 920px){
-      .grid-3,.grid-2{grid-template-columns:1fr}
-      .hero-main{padding:26px 18px}
-      .hero-band{padding:22px 18px}
-      .hero{padding-top:24px}
-      .nav{align-items:flex-start}
+    .lang.active{
+      display:block;
+    }
+
+    @media (max-width: 980px){
+      .grid-3,.grid-2{
+        grid-template-columns:1fr;
+      }
+
+      .hero-band{
+        min-height:220px;
+      }
+
+      .hero-band-inner{
+        min-height:220px;
+      }
+
+      .hero-band-title{
+        font-size:clamp(2.2rem,10vw,3.5rem);
+      }
+
+      .hero-main{
+        padding:22px 18px;
+      }
+
+      .hero-main h1{
+        font-size:1.02rem;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="wrap nav">
-      <div class="brand">POWERSHARES</div>
+    <div class="page-wrap nav">
+      <div class="brand-top">POWERSHARES</div>
       <div class="nav-right">
         <a class="top-link" href="pricing.html">Pricing</a>
+        <a class="top-link" href="mailto:contact@powershares.jp">Email</a>
         <div class="lang-switch">
           <button id="btn-ja" class="active" type="button">日本語</button>
           <button id="btn-en" type="button">English</button>
@@ -256,19 +366,21 @@
     </div>
   </header>
 
-  <main class="wrap">
-    <div id="lang-ja" class="lang active">
-      <section class="hero">
-        <div class="hero-band">
-          <h2 class="hero-band-title">Japan Property Research</h2>
-        </div>
+  <div class="hero-band">
+    <div class="hero-band-inner">
+      <div class="hero-brand-in-band">POWERSHARES</div>
+      <h2 class="hero-band-title">Japan Property Research</h2>
+    </div>
+  </div>
 
+  <main class="content-wrap">
+    <div id="lang-ja" class="lang active">
+      <section>
         <div class="hero-main">
           <h1>海外のお客様向けに、日本国内の不動産に関する現地確認、写真撮影、動画撮影、ドローン撮影のご相談を承ります。</h1>
           <p class="lead">
-            近隣の公共交通施設、物件までの道路環境、周辺商業施設、建物外観などを現地で確認し、
-            写真・動画データとして納品します。神奈川県および東京都内を中心に対応しています。
-            その他エリアは別途費用がかかりますので、ご相談ください。
+            近隣の公共交通施設、物件までの道路環境、周辺商業施設、建物外観などを現地で確認し、写真・動画データとして納品します。
+            神奈川県および東京都内を中心に対応しています。その他エリアは別途費用がかかりますので、ご相談ください。
           </p>
           <div class="cta">
             <a class="btn btn-primary" href="mailto:contact@powershares.jp?subject=Property%20Research%20Inquiry">メールで相談する</a>
@@ -365,16 +477,11 @@
     </div>
 
     <div id="lang-en" class="lang">
-      <section class="hero">
-        <div class="hero-band">
-          <h2 class="hero-band-title">Japan Property Research</h2>
-        </div>
-
+      <section>
         <div class="hero-main">
           <h1>We provide on-site property research in Japan for overseas clients, including local area review, still images, video coverage, and optional drone filming.</h1>
           <p class="lead">
-            We can cover nearby public transportation access, the route and environment around the property,
-            surrounding commercial facilities, and the building exterior.
+            We can cover nearby public transportation access, the route and environment around the property, surrounding commercial facilities, and the building exterior.
             Our main service area is Kanagawa and Tokyo. Other areas may require additional fees.
           </p>
           <div class="cta">
@@ -472,7 +579,7 @@
     </div>
   </main>
 
-  <footer class="wrap">
+  <footer class="content-wrap">
     <div>© PowerShares. All rights reserved.</div>
   </footer>
 
